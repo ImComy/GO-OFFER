@@ -1,0 +1,49 @@
+.popularstores-img {
+    max-width: 230px;
+    border-radius: 15px 15px 0 0;
+    border-bottom: 2px black solid;
+}
+
+.popularstores-content {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 40px;
+}
+
+.popular-stores {
+    border: 2px black solid;
+    border-radius: 15px;
+    transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out;
+    cursor: pointer;
+}
+
+.popular-stores:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 10px black;
+}
+
+.popularstores-details {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    color: #FA6619;
+    padding: 10px;
+    text-decoration: none;
+    border: none;
+}
+
+.popularstores-details p {
+    display: flex;
+    align-items: center;
+}
+
+.line-stores {
+    border: 1px black solid;
+    margin-top: -16px;
+    margin-bottom: -12px;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
