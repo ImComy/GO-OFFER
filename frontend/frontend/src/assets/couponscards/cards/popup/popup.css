@@ -1,0 +1,210 @@
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  max-width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+    opacity: 0; /* Initial state for fade-in */
+  animation: fadeIn 0.5s forwards;
+}
+
+.popup-inner {
+  padding: 20px;
+  width: 800px;
+  max-width: 90%;
+  background: #fff;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.popup-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #eaeaea;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+.discount {
+  font-size: 24px;
+  font-weight: bold;
+  color: #FA6619;
+}
+
+.deal-text {
+  flex-grow: 1;
+  margin-left: 10px;
+  font-size: 16px;
+  color: #333;
+}
+
+.brand {
+  font-size: 16px;
+  font-weight: bold;
+  color: #1a73e8;
+  max-width: 140px;
+}
+
+.popup-body {
+  position: relative;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.instruction {
+  font-size: 14px;
+  color: #777;
+  margin-bottom: 10px;
+}
+
+.coupon-code {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  padding: 17px;
+  margin-bottom: 20px;
+  background: #00000014;
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+
+.popup-flex {
+  display: flex;
+}
+
+.copy-btn:hover {
+  background-color: rgba(245, 93, 0, 1);
+  box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+}
+
+.copy-btn:active {
+  background-color: #c85000;
+  box-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px;
+  transform: translateY(0);
+}
+
+.code {
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+}
+
+.copy-btn {
+  background: #FA6619;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s, box-shadow 0.3s;
+  max-height: 55px;
+  margin-left: -15px;
+}
+
+.share-url {
+  display: flex;
+  justify-content:space-between;
+  align-items: center;
+  padding: 10px;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.shareurl-text {
+  font-size: 16px;
+  margin-right: 10px;
+}
+
+.url {
+  display: flex;
+  justify-content:center;
+  align-items: center;
+  flex-grow: 1;
+  margin-right: 10px;
+  border-bottom: solid 2px rgba(7, 7, 7, 0.44);
+  padding-bottom:5px;
+  max-width:70%;
+}
+
+.shareicon {
+  margin-right: 60px;
+}
+
+.shareurl-text{
+    font-weight:700;
+    font-size:17px;
+}
+
+.copy-link-btn {
+  background: transparent;
+  color: black;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s, box-shadow 0.3s;
+  font-weight:600;
+  font-size:17px;
+  margin-left: -40px;
+}
+
+.share-via {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.social-icons {
+  display: flex;
+  gap: 10px;
+  padding: 10px;
+}
+
+.icon {
+  font-size: 28px;
+  color: #555;
+  cursor: pointer;
+}
+
+.close-btn {
+  position: absolute;
+  top: 70px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 25px;
+  cursor: pointer;
+  color: #FA6619;
+  transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out;
+    &:hover {
+      transform: scale(1.05);
+      color:rgba(245, 93, 0, 1);
+    }
+}
+
+.popup-name {
+  color: #FA6619;
+}

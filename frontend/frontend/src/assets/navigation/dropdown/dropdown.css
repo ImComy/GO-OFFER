@@ -1,0 +1,38 @@
+.nav-container {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.nav-dropdown-icon {
+  cursor: pointer;
+  font-size: 24px;
+}
+
+.nav-dropdown-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 2;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 200px;
+}
+
+.nav-dropdown-item {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.nav-dropdown-item:hover {
+  background-color: #f0f0f0;
+}

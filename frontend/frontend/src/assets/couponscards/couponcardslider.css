@@ -1,0 +1,124 @@
+/*@keyframes slideLeft {
+  from {
+    transform: translateX(10%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideRight {
+  from {
+    transform: translateX(-10%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}*/
+
+.couponpagecardslide-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+  align-items: center;
+}
+
+.couponpagecardslide-content.slide-left {
+  animation: slideLeft 0.1s ease-in-out;
+}
+
+.couponpagecardslide-content.slide-right {
+  animation: slideRight 0.1s ease-in-out;
+}
+
+
+.couponpagecardslide-flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.couponpagecardslide-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  justify-content: center;
+  align-items: center;
+}
+
+.couponpagecardslide-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+  align-items: center;
+}
+
+.couponpagecardslide-dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.couponpagecardslide-dot {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  background-color: #ccc;
+  margin: 0 5px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  color: #000;
+  transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out;
+    &:hover {
+      transform: scale(1.05);
+      background-color: #FA6619;
+    }
+}
+
+.couponpagecardslide-dot.active {
+  background-color: #FA6619;
+}
+
+.couponpagecardslide-button {
+  color: white;
+  font-size: 30px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  background-color: #ccc;
+  border: none;
+  border-radius: 5px;
+  margin: 0 10px;
+  transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out;
+    &:hover {
+      transform: scale(1.05);
+      background-color: #FA6619;
+    }
+
+}
+
+
+.offerpagecardslide-content{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  width:820px;
+}
+
+.offerpagecardslide-content.slide-left {
+  animation: slideLeft 0.1s ease-in-out;
+}
+
+.offerpagecardslide-content.slide-right {
+  animation: slideRight 0.1s ease-in-out;
+}

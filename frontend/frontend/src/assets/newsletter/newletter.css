@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap');
+
+.news-container {
+  background: #FA6619;
+  width: 100vw;
+  max-height: 1000px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 20px;
+}
+
+.new-circle {
+  width: 110px;
+  height: 137.872px;
+  flex-shrink: 0;
+  fill: #FAFF00;
+  border-radius: 50%;
+  color: #FAFF00;
+  display: flex;
+  margin: 10px;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.news-email-icon {
+  color: #FA6619;
+  position: absolute;
+  font-size: 55px;
+  display: flex;
+}
+
+.news-text1,
+.news-text2,
+.news-textsp {
+  color: #FAFF00;
+  text-align: center;
+  font-family: 'Cairo', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  margin: 0;
+  line-height: 1;
+}
+
+.news-text1,
+.news-text2 {
+  font-size: 27.444px;
+  margin-bottom: -5px;
+}
+
+.news-textsp {
+  font-size: 54.887px;
+  margin-bottom: -1px;
+  color: white;
+}
+
+.news-text-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0px;
+}
+
+.news-form {
+  display: flex;
+  align-items: center;
+}
+
+.news-form input[type="text"] {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  margin-right: 10px;
+  margin-left: 30px;
+  width: 600px;
+}
+
+.news-button {
+  border-radius: 11.432px;
+  background: #FAFF00;
+  padding: 15px 30px;
+  transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.news-button:hover {
+  background-color: #F85A13;
+  transform: scale(1.05);
+  box-shadow: 0 0 10px black;
+}
