@@ -301,6 +301,7 @@ button.app-top-submitbtn:hover {
   width: 100vw;
   max-height: 1000px;
   padding: 20px;
+  z-index:110;
 }
 
 .app-storescards-header {
