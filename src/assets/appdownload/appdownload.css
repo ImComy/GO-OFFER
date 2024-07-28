@@ -7,15 +7,16 @@
 
 .appdownload-img-phone {
   position: absolute;
-  top: 0px;
+  top: 350px;
   right: 0px;
   min-width: 85%;
   max-width: 100%;
-  min-height: 115%;
+  height: 150% !important;
   object-fit: cover;
-  z-index:1000;
+  z-index:10;
   margin-top: -500px;
   margin-right:-100px;
+  padding:-200px;
 }
 
 @media (min-width: 1460px){

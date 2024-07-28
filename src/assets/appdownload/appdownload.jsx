@@ -3,7 +3,7 @@ import './appdownload.css';
 function Download() {
   return (
     <div className='appdownload-container'>
-    { <img src='./phone.png' alt="Phone mockup" className='appdownload-img-phone'/> }
+     <img src='./phone.png' alt="Phone mockup" className='appdownload-img-phone'/> }
       <div className='appdownload-content'>
         <div className='appdownload-find'>
           <div className='appdownload-text-container'>
