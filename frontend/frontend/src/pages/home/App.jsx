@@ -15,6 +15,7 @@ import News from '../../assets/newsletter/newsletter';
 import AppstoresCardslide from '../../assets/appstorescards/appstorescardsslider';
 import Review from '../../assets/reviews/review';
 import Download from '../../assets/appdownload/appdownload';
+import BlogPromotion from './blog/BlogPromotion'
 
 const sliderimages = [
   '3f40ca489b925fa4988ef4a8671b808b.png',
@@ -111,6 +112,9 @@ function App() {
         <h2 className="app-topoffers">Top Offers</h2>
         <div className='app-offercards'>
           <AppofferCardslide cardsObject={offercards} />
+        </div>
+        <div className='blog-wee'>
+          <BlogPromotion />
         </div>
       <div className="app-Coupons-container">
         <h2 className="app-topCoupons">Top Coupons</h2>

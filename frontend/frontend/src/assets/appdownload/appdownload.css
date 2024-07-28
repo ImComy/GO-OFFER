@@ -1,6 +1,6 @@
 .appdownload-container {
   position: relative;
-  width: 100%;
+  width: 100vw;
   height: 100vh;
   padding:200px;
 }
@@ -11,7 +11,7 @@
   right: 0px;
   min-width: 85%;
   max-width: 100%;
-  min-height: 120%;
+  min-height: 115%;
   object-fit: cover;
   z-index:1000;
   margin-top: -500px;
