@@ -11,6 +11,7 @@ import Stores from './pages/stores/stores';
 import Profile from './pages/profile/profile';
 import Privacy from './pages/privacy/privacy';
 import Spstore from './pages/specificstore/spstore';
+import Blog from './pages/blog/blog';
 
 const Main = () => (
   <BrowserRouter>
@@ -24,6 +25,7 @@ const Main = () => (
       <Route path="/Profile" element={<Profile />} />
       <Route path="/Privacy" element={<Privacy />} />
       <Route path="/Stores/noon" element={<Spstore />} />
+      <Route path="/Blog" element={<Blog />} />
     </Routes>
   </BrowserRouter>
 );
