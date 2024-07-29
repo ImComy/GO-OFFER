@@ -141,3 +141,20 @@ line-height: normal;
     justify-content:center;
     align-items:center;
 }
+
+
+.Blog-header-first{
+    margin-top:100px;
+}
+
+.blog-header{
+    color: #FA6619;
+font-family: Cairo;
+font-size: 30px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+border-left: black 8px solid;
+margin-left:50px;
+padding-left:20px;
+}

@@ -21,29 +21,29 @@ function Footer() {
 
         <div className='footer-about'>
           <h3>About</h3>
-          <Link to="/Privacy" className='footer-link'>
+          <Link to="/aboutus" className='footer-link'>
             About Osaka Deals
           </Link>
-          <Link to="/Privacy" className='footer-link'>
+          <Link to="/aboutus" className='footer-link'>
             Communities
           </Link>
-          <Link to="/Privacy" className='footer-link'>
+          <Link to="/blog" className='footer-link'>
             Blogs
           </Link>
-          <Link to="/Privacy" className='footer-link'>
+          <Link to="/aboutus" className='footer-link'>
             Careers
           </Link>
-          <Link to="/Privacy" className='footer-link'>
+          <Link to="/aboutus" className='footer-link'>
             Press Kit
           </Link>
         </div>
 
         <div className='footer-support'>
           <h3>Support</h3>
-          <Link to="/Privacy" className='footer-link'>
+          <Link to="/contact" className='footer-link'>
             Help Center
           </Link>
-          <Link to="/Privacy" className='footer-link'>
+          <Link to="/contact" className='footer-link'>
             Contact Us
           </Link>
           <Link to="/Privacy" className='footer-link'>
@@ -53,10 +53,10 @@ function Footer() {
 
         <div className='footer-compare'>
           <h3>Compare</h3>
-          <Link to="/Privacy" className='footer-link'>
+          <Link to="/contact" className='footer-link'>
             How to find Promo codes
           </Link>
-          <Link to="/Privacy" className='footer-link'>
+          <Link to="/contact" className='footer-link'>
             Most common coupon phrases
           </Link>
           <Link to="/Privacy" className='footer-link'>
