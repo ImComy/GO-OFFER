@@ -442,7 +442,7 @@ button.app-top-submitbtn:hover {
   height: 516px;
   background-image:
   linear-gradient(rgba(255, 255, 0, 0.5), #FA6619),
-  url("../../shooping.jpg");
+  url("/GO-OFFER/shooping.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;

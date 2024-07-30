@@ -3,7 +3,7 @@ import { BsDot } from "react-icons/bs";
 import { IoIosArrowDropleftCircle } from "react-icons/io";
 import { IoIosArrowDroprightCircle } from "react-icons/io";
 
-const Spouponscards = ({ couponsimageheader='../mac.svg', discount='20', name, text1="For all orders between $50.01 - 51.99 pay only $50.00", text2=" Can be combined with other promotions. "  }) => {
+const Spouponscards = ({ couponsimageheader='/GO-OFFER/mac.svg', discount='20', name='Macdonald\'s', text1="For all orders between $50.01 - 51.99 pay only $50.00", text2=" Can be combined with other promotions. "  }) => {
   return (
       <div className='spcards-container'>
         <div className='appCouponscards-header'>
@@ -15,7 +15,7 @@ const Spouponscards = ({ couponsimageheader='../mac.svg', discount='20', name, t
           <p className='spcards-text'> <BsDot className='BsDot'/> {text2} </p>
       </div>
       <div className='appCouponscards-ending'>
-        <h2 className="appCouponscards-ending-text"> All <span className='appCouponscards-span'>{name}’s</span> Coupons</h2>
+        <h2 className="spcards-ending-text"> All <span className='appCouponscards-span'>{name}</span> Coupons</h2>
         <button className="appCouponscards-ending-button"> <IoIosArrowDroprightCircle /> </button>
       </div>
     </div>

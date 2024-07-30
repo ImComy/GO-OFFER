@@ -18,7 +18,7 @@ import { HashRouter, BrowserRouter, Routes, Route } from 'react-router-dom';
 
 const cardsObject = [
   {
-    img: '../offericon.svg',
+    img: '/GO-OFFER/offericon.svg',
     code: 'CEVWRTIUWVOYT8E7Y',
     discount: 50,
     text: ' Exclusive Booking.com deal - Up to 20% off for Genius Members now!',
@@ -28,7 +28,7 @@ const cardsObject = [
     name: 'Booking'
   },
   {
-    img: '../offericon.svg',
+    img: '/GO-OFFER/offericon.svg',
     code: 'CEVWRTIUWVOYT8E7Y',
     discount: 50,
     text: ' Exclusive Booking.com deal - Up to 20% off for Genius Members now!',
@@ -38,7 +38,7 @@ const cardsObject = [
     name: 'Booking'
   },
   {
-    img: '../offericon.svg',
+    img: '/GO-OFFER/offericon.svg',
     code: 'CEVWRTIUWVOYT8E7Y',
     discount: 50,
     text: ' Exclusive Booking.com deal - Up to 20% off for Genius Members now!',
@@ -48,7 +48,7 @@ const cardsObject = [
     name: 'Booking'
   },
   {
-    img: '../offericon.svg',
+    img: '/GO-OFFER/offericon.svg',
     code: 'CEVWRTIUWVOYT8E7Y',
     discount: 50,
     text: ' Exclusive Booking.com deal - Up to 20% off for Genius Members now!',
@@ -58,7 +58,7 @@ const cardsObject = [
     name: 'Booking'
   },
   {
-    img: '../offericon.svg',
+    img: '/GO-OFFER/offericon.svg',
     code: 'CEVWRTIUWVOYT8E7Y',
     discount: 50,
     text: ' Exclusive Booking.com deal - Up to 20% off for Genius Members now!',
@@ -68,7 +68,7 @@ const cardsObject = [
     name: 'Booking'
   },
   {
-    img: '../offericon.svg',
+    img: '/GO-OFFER/offericon.svg',
     code: 'CEVWRTIUWVOYT8E7Y',
     discount: 50,
     text: ' Exclusive Booking.com deal - Up to 20% off for Genius Members now!',
@@ -78,7 +78,7 @@ const cardsObject = [
     name: 'Booking'
   },
   {
-    img: '../offericon.svg',
+    img: '/GO-OFFER/offericon.svg',
     code: 'CEVWRTIUWVOYT8E7Y',
     discount: 50,
     text: ' Exclusive Booking.com deal - Up to 20% off for Genius Members now!',
@@ -88,7 +88,7 @@ const cardsObject = [
     name: 'Booking'
   },
   {
-    img: '../offericon.svg',
+    img: '/GO-OFFER/offericon.svg',
     code: 'CEVWRTIUWVOYT8E7Y',
     discount: 50,
     text: ' Exclusive Booking.com deal - Up to 20% off for Genius Members now!',
@@ -98,7 +98,7 @@ const cardsObject = [
     name: 'Booking'
   },
   {
-    img: '../offericon.svg',
+    img: '/GO-OFFER/offericon.svg',
     code: 'CEVWRTIUWVOYT8E7Y',
     discount: 50,
     text: ' Exclusive Booking.com deal - Up to 20% off for Genius Members now!',
@@ -108,7 +108,7 @@ const cardsObject = [
     name: 'Booking'
   },
   {
-    img: '../offericon.svg',
+    img: '/GO-OFFER/offericon.svg',
     code: 'CEVWRTIUWVOYT8E7Y',
     discount: 50,
     text: ' Exclusive Booking.com deal - Up to 20% off for Genius Members now!',
@@ -118,7 +118,7 @@ const cardsObject = [
     name: 'Booking'
   },
   {
-    img: '../offericon.svg',
+    img: '/GO-OFFER/offericon.svg',
     code: 'CEVWRTIUWVOYT8E7Y',
     discount: 50,
     text: ' Exclusive Booking.com deal - Up to 20% off for Genius Members now!',
@@ -128,7 +128,7 @@ const cardsObject = [
     name: 'Booking'
   },
   {
-    img: '../offericon.svg',
+    img: '/GO-OFFER/offericon.svg',
     code: 'CEVWRTIUWVOYT8E7Y',
     discount: 50,
     text: ' Exclusive Booking.com deal - Up to 20% off for Genius Members now!',
@@ -138,7 +138,7 @@ const cardsObject = [
     name: 'Booking'
   },
   {
-    img: '../offericon.svg',
+    img: '/GO-OFFER/offericon.svg',
     code: 'CEVWRTIUWVOYT8E7Y',
     discount: 50,
     text: ' Exclusive Booking.com deal - Up to 20% off for Genius Members now!',
@@ -148,7 +148,7 @@ const cardsObject = [
     name: 'Booking'
   },
   {
-    img: '../offericon.svg',
+    img: '/GO-OFFER/offericon.svg',
     code: 'CEVWRTIUWVOYT8E7Y',
     discount: 50,
     text: ' Exclusive Booking.com deal - Up to 20% off for Genius Members now!',
@@ -158,7 +158,27 @@ const cardsObject = [
     name: 'Booking'
   },
   {
-    img: '../offericon.svg',
+    img: '/GO-OFFER/offericon.svg',
+    code: 'CEVWRTIUWVOYT8E7Y',
+    discount: 50,
+    text: ' Exclusive Booking.com deal - Up to 20% off for Genius Members now!',
+    people: 6,
+    img2: 'https://tmpfiles.nohat.cc/full-m2i8K9G6N4m2H7Z5.png',
+    link: 'https://sample.net/?connection=shop&stew=passenger',
+    name: 'Booking'
+  },
+  {
+    img: '/GO-OFFER/offericon.svg',
+    code: 'CEVWRTIUWVOYT8E7Y',
+    discount: 50,
+    text: ' Exclusive Booking.com deal - Up to 20% off for Genius Members now!',
+    people: 6,
+    img2: 'https://tmpfiles.nohat.cc/full-m2i8K9G6N4m2H7Z5.png',
+    link: 'https://sample.net/?connection=shop&stew=passenger',
+    name: 'Booking'
+  },
+  {
+    img: '/GO-OFFER/offericon.svg',
     code: 'CEVWRTIUWVOYT8E7Y',
     discount: 50,
     text: ' Exclusive Booking.com deal - Up to 20% off for Genius Members now!',
@@ -168,6 +188,7 @@ const cardsObject = [
     name: 'Booking'
   },
 ];
+
 
 function Spstore() {
 

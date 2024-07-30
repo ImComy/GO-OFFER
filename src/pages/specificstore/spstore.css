@@ -9,7 +9,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 280px;
+  width: 300px;
   height: 300px;
   flex-wrap: nowrap;
     transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out;
@@ -115,3 +115,8 @@ tr:nth-child(even) {
   text-align:center;
 }
 
+.spcards-ending-text{
+  grid-column: 1;
+  margin-top: 10px;
+  font-size:20px
+}
