@@ -14,6 +14,7 @@ import Spstore from './pages/specificstore/spstore';
 import Blog from './pages/blog/blog';
 import About from './pages/aboutus/aboutus';
 import Contact from './pages/contact/contact';
+import Osaka from './pages/osaka'
 
 const Main = () => (
   <BrowserRouter>
@@ -30,6 +31,7 @@ const Main = () => (
       <Route path="/Blog" element={<Blog />} />
       <Route path="/aboutus" element={<About />} />
       <Route path="/contact" element={<Contact />} />
+      <Route path="/osaka" element={<Osaka />} />
     </Routes>
   </BrowserRouter>
 );

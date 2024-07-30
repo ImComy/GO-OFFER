@@ -21,7 +21,7 @@ function Footer() {
 
         <div className='footer-about'>
           <h3>About</h3>
-          <Link to="/aboutus" className='footer-link'>
+          <Link to="/osaka" className='footer-link'>
             About Osaka Deals
           </Link>
           <Link to="/aboutus" className='footer-link'>
