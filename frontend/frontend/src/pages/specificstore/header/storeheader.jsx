@@ -13,7 +13,7 @@ function Storeheader({
     used = '100,137',
     update = 'July, 2024',
     text = 'The best prices and offers for installments and cash in Egypt from Noon 2024',
-    img = '../noon.png'
+    img = '/GO-OFFER/noon.png'
 }) {
     const segments = path.split('/');
 

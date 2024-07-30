@@ -168,12 +168,12 @@ function Navigation({ IsSigned = 'true', name = 'Patrick Bateman' }) {
             <span></span>
           </div>
           <div className={`dropdown-content ${isHamburgerOpen ? 'open' : ''}`}>
-            <a href="/" onClick={closeHamburger}><AiOutlineHome /> Home</a>
-            <a href="/Coupons" onClick={closeHamburger}><MdDiscount /> Coupons</a>
-            <a href="/Offers" onClick={closeHamburger}><BiSolidOffer /> Offers</a>
-            <a href="/Stores" onClick={closeHamburger}><AiOutlineShop /> Stores</a>
-            <a href="/login" onClick={closeHamburger}><CiLogin /> Login</a>
-            <a href="/signup" onClick={closeHamburger}><MdOutlineWavingHand /> Signup</a>
+            <a href="#/" onClick={closeHamburger}><AiOutlineHome /> Home</a>
+            <a href="#/Coupons" onClick={closeHamburger}><MdDiscount /> Coupons</a>
+            <a href="#/Offers" onClick={closeHamburger}><BiSolidOffer /> Offers</a>
+            <a href="#/Stores" onClick={closeHamburger}><AiOutlineShop /> Stores</a>
+            <a href="#/login" onClick={closeHamburger}><CiLogin /> Login</a>
+            <a href="#/signup" onClick={closeHamburger}><MdOutlineWavingHand /> Signup</a>
             <a href="#" onClick={closeHamburger}><CiLogout /> Logout</a>
           </div>
         </div>

@@ -123,7 +123,7 @@ function Stores() {
                 </div>
                 <div className='coupons-content'>
                     <div className='popularstores-content'>
-                        <a href="/Stores/noon">
+                        <a href="#/SN">
                           <div className='popular-stores'>
                             <img src='./noon.jpeg' alt='Popular Store' className='popularstores-img' />
                             <div className='popularstores-details'>
@@ -133,7 +133,7 @@ function Stores() {
                               </div>
                            </div>
                          </a>
-                        <a href="/Stores/noon">
+                        <a href="#/SN">
                           <div className='popular-stores'>
                             <img src='./noon.jpeg' alt='Popular Store' className='popularstores-img' />
                             <div className='popularstores-details'>
@@ -143,7 +143,7 @@ function Stores() {
                               </div>
                            </div>
                          </a>
-                        <a href="/Stores/noon">
+                        <a href="#/SN">
                           <div className='popular-stores'>
                             <img src='./noon.jpeg' alt='Popular Store' className='popularstores-img' />
                             <div className='popularstores-details'>

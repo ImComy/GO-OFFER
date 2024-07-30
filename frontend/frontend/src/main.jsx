@@ -17,23 +17,23 @@ import Contact from './pages/contact/contact';
 import Osaka from './pages/osaka'
 
 const Main = () => (
-  <BrowserRouter>
+  <HashRouter>
     <Routes>
       <Route path="/" element={<App />} />
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<Signup />} />
-      <Route path="/Coupons" element={<Coupons />} />
-      <Route path="/Offers" element={<Offer />} />
-      <Route path="/Stores" element={<Stores />} />
-      <Route path="/Profile" element={<Profile />} />
-      <Route path="/Privacy" element={<Privacy />} />
-      <Route path="/Stores/noon" element={<Spstore />} />
-      <Route path="/Blog" element={<Blog />} />
+      <Route path="/coupons" element={<Coupons />} />
+      <Route path="/offers" element={<Offer />} />
+      <Route path="/stores" element={<Stores />} />
+      <Route path="/profile" element={<Profile />} />
+      <Route path="/privacy" element={<Privacy />} />
+      <Route path="SN" element={<Spstore />} />
+      <Route path="/blog" element={<Blog />} />
       <Route path="/aboutus" element={<About />} />
       <Route path="/contact" element={<Contact />} />
       <Route path="/osaka" element={<Osaka />} />
     </Routes>
-  </BrowserRouter>
+  </HashRouter>
 );
 
 ReactDOM.render(<Main />, document.getElementById('root'));
