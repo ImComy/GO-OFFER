@@ -33,3 +33,15 @@
   height: 20vh;
 }
 
+.osaka {
+    background-color: grey;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+video {
+    max-width: 100%;
+    height: auto;
+}
