@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { HashRouter, BrowserRouter, Routes, Route } from 'react-router-dom';
 import App from './pages/home/App';
 import Login from './pages/login/login.jsx';
 import Signup from './pages/login/signup.jsx';
@@ -12,6 +12,8 @@ import Profile from './pages/profile/profile';
 import Privacy from './pages/privacy/privacy';
 import Spstore from './pages/specificstore/spstore';
 import Blog from './pages/blog/blog';
+import About from './pages/aboutus/aboutus';
+import Contact from './pages/contact/contact';
 
 const Main = () => (
   <BrowserRouter>
@@ -26,6 +28,8 @@ const Main = () => (
       <Route path="/Privacy" element={<Privacy />} />
       <Route path="/Stores/noon" element={<Spstore />} />
       <Route path="/Blog" element={<Blog />} />
+      <Route path="/aboutus" element={<About />} />
+      <Route path="/contact" element={<Contact />} />
     </Routes>
   </BrowserRouter>
 );
