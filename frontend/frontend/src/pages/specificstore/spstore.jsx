@@ -13,6 +13,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import Storeheader from './header/storeheader'
 import AppCouponscards from "../../assets/appCouponscards/cards/appCouponscards";
 import Spouponscards from './cards/spstorecards';
+import { HashRouter, BrowserRouter, Routes, Route } from 'react-router-dom';
 
 
 const cardsObject = [

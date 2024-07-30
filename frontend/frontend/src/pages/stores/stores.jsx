@@ -13,6 +13,7 @@ import { BiSolidOffer } from "react-icons/bi";
 import { RiCoupon3Fill } from "react-icons/ri";
 import Couponpagecardslide from "../../assets/couponscards/couponcardslider";
 import Storespagecardslide from './storespageslider'
+import { HashRouter, BrowserRouter, Routes, Route } from 'react-router-dom';
 
 const cardsObject = [
   {
