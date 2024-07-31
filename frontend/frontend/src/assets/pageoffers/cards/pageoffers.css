@@ -10,7 +10,7 @@
   transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out;
     &:hover {
       transform: scale(1.05);
-      box-shadow: 0 0 10px #F85A13;
+      box-shadow: 0 0 10px grey;
   }
 }
 
@@ -20,6 +20,7 @@
   display:flex;
   justify-content:center;
   align-items:center;
+  margin-left:-2px;
 }
 
 .offercardpage-headerimg {

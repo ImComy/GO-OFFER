@@ -11,7 +11,7 @@ const Blogcards = ({
         <div className='blogcard-container'>
             <div className='blogcard-header'>
               <div className='blognew'>
-                <img className='new-icon' src='/new.svg' alt='New' />
+                <img className='new-icon' src='/GO-OFFER/new.svg' alt='New' />
               </div>
                 <img className='blogcard-image' src={img} alt={name} />
                 <div className='overlay'>

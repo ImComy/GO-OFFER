@@ -1,5 +1,6 @@
 import React from 'react';
 import './BlogPromotion.css';
+import { RiArrowRightSLine } from "react-icons/ri";
 
 const BlogPromotion = () => {
   return (
@@ -8,7 +9,7 @@ const BlogPromotion = () => {
       <p>For the latest news and updates</p>
       <a href="#/Blog">
         <button className="app-blog-button">
-          Blog &#11166;
+          Blog <span className='blog-arrow'> <RiArrowRightSLine /> </span>
         </button>
       </a>
     </div>
