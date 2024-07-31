@@ -39,7 +39,7 @@
     &:hover {
     background-color: #F85A13;
     transform: scale(1.05);
-    box-shadow: 0 0 10px #F85A13;
+    box-shadow: 0 0 10px grey;
   }
 }
 
@@ -52,7 +52,7 @@
     &:hover {
     background-color: #F85A13;
     transform: scale(1.05);
-    box-shadow: 0 0 10px #F85A13;
+    box-shadow: 0 0 10px grey;
   }
 }
 
@@ -65,7 +65,7 @@
     &:hover {
     background-color: #F85A13;
     transform: scale(1.05);
-    box-shadow: 0 0 10px #F85A13;
+    box-shadow: 0 0 10px grey;
   }
 }
 

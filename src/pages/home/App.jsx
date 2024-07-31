@@ -26,10 +26,10 @@ const sliderimages = [
 const offercards = [
   {offerImageHeader:'./nike.svg',  offerImageBackground:'./gigachad.png', discount: 40, ending: "18 days", name:'Nike'},
   {offerImageHeader:'./offericon.svg',  offerImageBackground:'./market.png', discount: 40, ending: "18 days", name:'Domino'},
-  {offerImageHeader:'./mac.svg',  offerImageBackground:'/macmeal.png', discount: 40, ending: "18 days", name:'Macdonald\'s'},
+  {offerImageHeader:'./mac.svg',  offerImageBackground:'./macmeal.png', discount: 40, ending: "18 days", name:'Macdonald\'s'},
   {offerImageHeader:'./google.svg',  offerImageBackground:'./googleplace.png', discount: 40, ending: "18 days", name:'Google'},
   {offerImageHeader:'./nike.svg',  offerImageBackground:'./gigachad.png', discount: 40, ending: "18 days", name:'Nike'},
-  {offerImageHeader:'./mac.svg',  offerImageBackground:'/macmeal.png', discount: 40, ending: "18 days", name:'Macdonald\'s'},
+  {offerImageHeader:'./mac.svg',  offerImageBackground:'./macmeal.png', discount: 40, ending: "18 days", name:'Macdonald\'s'},
   {offerImageHeader:'./google.svg',  offerImageBackground:'./googleplace.png', discount: 40, ending: "18 days", name:'Google'},
 ]
 
@@ -109,7 +109,10 @@ function App() {
         <Slider sliderimages={sliderimages} />
       </div>
       <div className="app-offers-container">
-        <h2 className="app-topoffers">Top Offers</h2>
+        <div className='viewmore-flex'>
+          <h2 className="app-topoffers">Top Offers</h2>
+          <Link to="/" className='offer-viewmore'> <span>View More</span> <i className="stores-arrow right"></i> </Link>
+        </div>
         <div className='app-offercards'>
           <AppofferCardslide cardsObject={offercards} />
         </div>
@@ -117,7 +120,7 @@ function App() {
           <BlogPromotion />
         </div>
       <div className="app-Coupons-container">
-        <h2 className="app-topCoupons">Top Coupons</h2>
+        <h2 className="app-topCoupons">New Coupons</h2>
         <div className='AppcouponsCardslide'/>
           <AppcouponsCardslide cardsObject={Couponscards} />
         </div>

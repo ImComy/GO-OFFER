@@ -470,6 +470,7 @@ button.app-top-submitbtn:hover {
 }
 
 .app-blog-button {
+  position:relative;
   appearance: button;
   background-color: transparent;
   background-image: linear-gradient(to bottom, #fff, #f8eedb);
@@ -478,6 +479,10 @@ button.app-top-submitbtn:hover {
   box-sizing: border-box;
   color: #482307;
   column-gap: 1rem;
+  padding-left:2rem;
+  padding-right:1.2rem;
+  padding-top:1rem;
+  padding-bottom:1rem;
   cursor: pointer;
   display: flex;
   font-family: ui-sans-serif,system-ui,-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
@@ -486,7 +491,6 @@ button.app-top-submitbtn:hover {
   line-height: 24px;
   margin: 0;
   outline: 2px solid transparent;
-  padding: 1rem 3rem;
   text-align: center;
   text-transform: none;
   transition: all .1s cubic-bezier(.4, 0, .2, 1);
@@ -509,4 +513,38 @@ button.app-top-submitbtn:hover {
 
 .app-blog-button:focus {
   box-shadow: rgba(72, 35, 7, .46) 0 0 0 4px, -6px 8px 10px rgba(81,41,10,0.1), 0px 2px 2px rgba(81,41,10,0.2);
+}
+
+
+.viewmore-flex{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.offer-arrow{
+  font-size:30px;
+  margin-top:25px;
+  margin-left:10px;
+}
+
+.offer-viewmore{
+  margin-right:40px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.offer-viewmore span{
+  font-weight:600;
+  margin-right:10px;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.blog-arrow{
+  font-size:30px;
+  margin-left:-20px;
+  margin-top:-2px;
 }

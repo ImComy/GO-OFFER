@@ -10,9 +10,9 @@
   color:white;
   cursor:pointer;
     &:hover {
-    background-color: #F85A13;
+    background-color: grey;
     transform: scale(1.05);
-    box-shadow: 0 0 10px #F85A13;
+    box-shadow: 0 0 10px grey;
   }
 }
 

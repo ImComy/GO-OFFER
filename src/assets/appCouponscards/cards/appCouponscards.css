@@ -8,7 +8,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-width: 550px;
+  min-width: 450px;
   max-height: 250px;
   flex-wrap: nowrap;
     transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out;
