@@ -1,47 +1,47 @@
-const express = require("express");
-const router = express.Router();
-const User = require("../models/User");
+const router = require("express").Router();
+const { User } = require("../models/User");
 const bcrypt = require("bcrypt");
-const jwt = require("jsonwebtoken");
+const Joi = require("joi");
+require('dotenv').config();
 
 router.post("/", async (req, res) => {
-  try {
-    const { firstName, lastName, email, password } = req.body;
+	try {
+		const { error } = validate(req.body);
+		if (error)
+			return res.status(400).send({ message: error.details[0].message });
 
-    // Simple validation
-    if (!firstName || !lastName || !email || !password) {
-      return res.status(400).json({ message: "All fields are required" });
-    }
+		const user = await User.findOne({ email: req.body.email });
+		if (user)
+			return res.status(401).send({ message: "User already exists" });
 
-    // Check if the user already exists
-    const userExists = await User.findOne({ email });
-    if (userExists) {
-      return res.status(400).json({ message: "User already exists" });
-    }
+		const salt = await bcrypt.genSalt(10);
+		const hashedPassword = await bcrypt.hash(req.body.password, salt);
 
-    // Hash the password
-    const salt = await bcrypt.genSalt(10);
-    const hashedPassword = await bcrypt.hash(password, salt);
+		const newUser = new User({
+			firstName: req.body.firstName,
+			lastName: req.body.lastName,
+			email: req.body.email,
+			password: hashedPassword,
+		});
 
-    // Create a new user
-    const user = new User({
-      firstName,
-      lastName,
-      email,
-      password: hashedPassword,
-    });
+		await newUser.save();
 
-    await user.save();
-
-    // Generate a JWT token
-    const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, {
-      expiresIn: "1h",
-    });
-
-    res.status(201).json({ token, message: "User created successfully" });
-  } catch (error) {
-    res.status(500).json({ message: "Server error" });
-  }
+		const token = newUser.generateAuthToken();
+		res.status(201).send({ token, message: "User created successfully" });
+	} catch (error) {
+		console.error("Error during user creation:", error); // Detailed error log
+		res.status(500).send({ message: "Internal Server Error" });
+	}
 });
+
+const validate = (data) => {
+	const schema = Joi.object({
+		firstName: Joi.string().required().label("First Name"),
+		lastName: Joi.string().required().label("Last Name"),
+		email: Joi.string().email().required().label("Email"),
+		password: Joi.string().required().label("Password"),
+	});
+	return schema.validate(data);
+};
 
 module.exports = router;
