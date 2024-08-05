@@ -337,10 +337,10 @@ button {
   overflow-y: scroll;
   overflow-x: hidden;
   border: 2px solid rgba(245, 93, 0, 1);
-  animation: fadeIn 0.5s forwards;
+  animation: fadeIn55 0.5s forwards !important;
 }
 
-@keyframes fadeIn {
+@keyframes fadeIn55 {
   from {
     opacity: 0;
     transform: translateY(-20px);
@@ -402,8 +402,9 @@ button {
   border-radius:20px;
   position:absolute;
   margin-top:-15px;
-  font-size:10px;
+  font-size:9px;
   margin-left:15px;
+  padding:1px 3px;
 }
 
 .nav-number-noti{

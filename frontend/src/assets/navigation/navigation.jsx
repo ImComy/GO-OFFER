@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import axios from 'axios';
 import { useLocation, useNavigate } from 'react-router-dom';
 import './navigation.css';
 import { AiOutlineHome, AiOutlineShop } from 'react-icons/ai';
@@ -36,25 +37,15 @@ function Navigation({ IsSigned = 'true', name = 'Patrick Bateman' }) {
   const notificationRef = useRef(null);
   const emailRef = useRef(null);
 
-  const isActive = (path) => {
-    return location.pathname === path ? 'active' : '';
-  };
+  const isActive = (path) => location.pathname === path ? 'active' : '';
 
-  const toggleHamburger = () => {
-    setIsHamburgerOpen(!isHamburgerOpen);
-  };
+  const toggleHamburger = () => setIsHamburgerOpen(!isHamburgerOpen);
 
-  const closeHamburger = () => {
-    setIsHamburgerOpen(false);
-  };
+  const closeHamburger = () => setIsHamburgerOpen(false);
 
-  const toggleNotification = () => {
-    setIsNotificationOpen((prevState) => !prevState);
-  };
+  const toggleNotification = () => setIsNotificationOpen(!isNotificationOpen);
 
-  const toggleEmail = () => {
-    setIsEmailOpen((prevState) => !prevState);
-  };
+  const toggleEmail = () => setIsEmailOpen(!isEmailOpen);
 
   const handleClickOutside = (event) => {
     if (notificationRef.current && !notificationRef.current.contains(event.target)) {
@@ -72,10 +63,34 @@ function Navigation({ IsSigned = 'true', name = 'Patrick Bateman' }) {
     };
   }, []);
 
-  const handleOptionClick = (option) => {
-    console.log(option);
-    setIsOpen(false);
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    navigate('/login');
   };
+
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+
+  useEffect(() => {
+    const fetchUserData = async () => {
+      const token = localStorage.getItem('token');
+      if (token) {
+        try {
+          const response = await axios.get('http://localhost:8000/api/users', {
+            headers: { Authorization: `Bearer ${token}` }
+          });
+          setFirstName(response.data.firstName);
+          setLastName(response.data.lastName);
+        } catch (error) {
+          console.error('Failed to fetch user data:', error);
+        }
+      }
+    };
+
+    fetchUserData();
+  }, []);
+
+  const isLoggedIn = () => !!localStorage.getItem('token');
 
   return (
     <div className='nav-container'>
@@ -102,7 +117,7 @@ function Navigation({ IsSigned = 'true', name = 'Patrick Bateman' }) {
         </button>
       </div>
       <div className='nav-flexflex'>
-        {IsSigned === 'false' ? (
+        {!isLoggedIn() ? (
           <div className='notSigned'>
             <button className='nav-signin' onClick={() => navigate('/login')}>
               <CiLogin /><p className='nav-icon-text1'>&nbsp; Log In&nbsp;&nbsp;&nbsp; </p>
@@ -155,7 +170,7 @@ function Navigation({ IsSigned = 'true', name = 'Patrick Bateman' }) {
             </div>
             <div className='nav-loginbtn'>
               <button className='nav-pfpbtn' onClick={() => navigate('/profile')}>
-                <span className='nav-profileText'>{name}</span>
+                <span className='nav-profileText'>{firstName} {lastName}</span>
                 <CgProfile className='nav-pfp' />
               </button>
             </div>
@@ -174,7 +189,7 @@ function Navigation({ IsSigned = 'true', name = 'Patrick Bateman' }) {
             <a href="#/Stores" onClick={closeHamburger}><AiOutlineShop /> Stores</a>
             <a href="#/login" onClick={closeHamburger}><CiLogin /> Login</a>
             <a href="#/signup" onClick={closeHamburger}><MdOutlineWavingHand /> Signup</a>
-            <a href="#" onClick={closeHamburger}><CiLogout /> Logout</a>
+            <a href="#" onClick={handleLogout}><CiLogout /> Logout</a>
           </div>
         </div>
       </div>

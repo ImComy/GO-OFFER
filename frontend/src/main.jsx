@@ -14,7 +14,7 @@ import Spstore from './pages/specificstore/spstore';
 import Blog from './pages/blog/blog';
 import About from './pages/aboutus/aboutus';
 import Contact from './pages/contact/contact';
-import Osaka from './pages/osaka'
+import Osaka from './pages/osaka';
 
 const Main = () => (
   <HashRouter>

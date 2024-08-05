@@ -2,6 +2,7 @@ const router = require("express").Router();
 const { User } = require("../models/User");
 const bcrypt = require("bcrypt");
 const Joi = require("joi");
+const jwt = require("jsonwebtoken");
 require('dotenv').config();
 
 router.post("/", async (req, res) => {
@@ -32,6 +33,33 @@ router.post("/", async (req, res) => {
 		console.error("Error during user creation:", error); // Detailed error log
 		res.status(500).send({ message: "Internal Server Error" });
 	}
+});
+
+router.get("/", async (req, res) => {
+  try {
+    const token = req.headers['authorization']?.split(' ')[1];
+    if (!token) {
+      console.error("No token provided");
+      return res.status(401).send({ message: "Access denied. No token provided." });
+    }
+
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    if (!decoded) {
+      console.error("Invalid token");
+      return res.status(401).send({ message: "Invalid token" });
+    }
+
+    const user = await User.findById(decoded._id);
+    if (!user) {
+      console.error("User not found");
+      return res.status(404).send({ message: "User not found." });
+    }
+
+    res.send(user);
+  } catch (error) {
+    console.error("Error fetching user data:", error.message);
+    res.status(500).send({ message: "Internal Server Error" });
+  }
 });
 
 const validate = (data) => {
