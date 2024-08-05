@@ -1,6 +1,6 @@
 import React from 'react';
 import { FaFacebook, FaGithub, FaGoogle } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from "react-router-dom";
 import './login.css';
 import Navigation from '../../assets/navigation/navigation';
 import Footer from '../../assets/footer/footer';

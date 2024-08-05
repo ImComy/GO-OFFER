@@ -1,36 +1,31 @@
-const express = require("express");
-const mongoose = require("mongoose");
-const morgan = require("morgan");
-const bodyParser = require("body-parser");
-const cookieParser = require("cookie-parser");
+const express = require('express');
 const cors = require('cors');
-const path = require('path');
-const errorHandler = require("./middleware/error");
-const authRoutes = require('./routes/authRoutes');
-
-require("dotenv").config();
-
 const app = express();
+const connectDB = require("./db");
+const userRoutes = require("./routes/users");
+const authRoutes = require("./routes/auth");
+require('dotenv').config();
+
+
+// Configure CORS
+app.use(cors({
+  origin: 'http://localhost:5173', // The origin of your frontend
+  methods: 'GET,POST,PUT,DELETE',
+  allowedHeaders: 'Content-Type,Authorization',
+}));
+
+// Database connection
+ connectDB();
+
+// Your routes and other middleware
+app.use(express.json());
+
+// Example route
+app.use('/api/users', require('./routes/users'));
+
+// Start the server
 const port = process.env.PORT || 8000;
-
-app.use(morgan('dev'));
-app.use(bodyParser.json({ limit: '5mb' }));
-app.use(bodyParser.urlencoded({ limit: '5mb', extended: true }));
-app.use(cookieParser());
-app.use(cors());
-
-app.use('/api', authRoutes);
-
-if (process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.join(__dirname, '../frontend/build')));
-
-  app.get('*', (req, res) => {
-    res.sendFile(path.resolve(__dirname, '../frontend', 'build', 'index.html'));
-  });
-}
-
-app.use(errorHandler);
-
 app.listen(port, () => {
-    console.log(`Server is running on port: ${port}`);
+  console.log(`Server running on port ${port}`);
 });
+
