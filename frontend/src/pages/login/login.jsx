@@ -9,7 +9,7 @@ import axios from "axios";
 
 function Login() {
 
-  	const [data, setData] = useState({ email: "", password: "" });
+	const [data, setData] = useState({ email: "", password: "" });
 	const [error, setError] = useState("");
 
 	const handleChange = ({ currentTarget: input }) => {
@@ -21,15 +21,11 @@ function Login() {
 		try {
 			const url = "http://localhost:8000/api/auth";
 			const { data: res } = await axios.post(url, data);
-            console.log(res);
+			console.log(res);
 			localStorage.setItem("token", res.data);
-			window.location = "/";
+
 		} catch (error) {
-			if (
-				error.response &&
-				error.response.status >= 400 &&
-				error.response.status <= 500
-			) {
+			if (error.response && error.response.status >= 400 && error.response.status <= 500) {
 				setError(error.response.data.message);
 			}
 		}
@@ -61,7 +57,7 @@ function Login() {
 							required
 							className='inputelementpass'
 						/>
-						{error && <div className={styles.error_msg}>{error}</div>}
+						{error && <div className='error_msg'>{error}</div>}
 						<button type="submit" className='submit'>
 							Log In
 						</button>
