@@ -22,6 +22,7 @@ app.use(express.json());
 
 // Example route
 app.use('/api/users', require('./routes/users'));
+app.use('/api/auth', require('./routes/auth'));
 
 // Start the server
 const port = process.env.PORT || 8000;
