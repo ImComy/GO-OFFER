@@ -1,7 +1,6 @@
 const router = require("express").Router();
-const { User } = require("../models/User");
+const { User, validate } = require("../models/User");
 const bcrypt = require("bcrypt");
-const Joi = require("joi");
 const jwt = require("jsonwebtoken");
 require('dotenv').config();
 
@@ -23,6 +22,7 @@ router.post("/", async (req, res) => {
 			lastName: req.body.lastName,
 			email: req.body.email,
 			password: hashedPassword,
+			phone: req.body.phone, // Add phone field here
 		});
 
 		await newUser.save();
@@ -36,40 +36,30 @@ router.post("/", async (req, res) => {
 });
 
 router.get("/", async (req, res) => {
-  try {
-    const token = req.headers['authorization']?.split(' ')[1];
-    if (!token) {
-      console.error("No token provided");
-      return res.status(401).send({ message: "Access denied. No token provided." });
-    }
+	try {
+		const token = req.headers['authorization']?.split(' ')[1];
+		if (!token) {
+			console.error("No token provided");
+			return res.status(401).send({ message: "Access denied. No token provided." });
+		}
 
-    const decoded = jwt.verify(token, process.env.JWT_SECRET);
-    if (!decoded) {
-      console.error("Invalid token");
-      return res.status(401).send({ message: "Invalid token" });
-    }
+		const decoded = jwt.verify(token, process.env.JWT_SECRET);
+		if (!decoded) {
+			console.error("Invalid token");
+			return res.status(401).send({ message: "Invalid token" });
+		}
 
-    const user = await User.findById(decoded._id);
-    if (!user) {
-      console.error("User not found");
-      return res.status(404).send({ message: "User not found." });
-    }
+		const user = await User.findById(decoded._id);
+		if (!user) {
+			console.error("User not found");
+			return res.status(404).send({ message: "User not found." });
+		}
 
-    res.send(user);
-  } catch (error) {
-    console.error("Error fetching user data:", error.message);
-    res.status(500).send({ message: "Internal Server Error" });
-  }
+		res.send(user);
+	} catch (error) {
+		console.error("Error fetching user data:", error.message);
+		res.status(500).send({ message: "Internal Server Error" });
+	}
 });
-
-const validate = (data) => {
-	const schema = Joi.object({
-		firstName: Joi.string().required().label("First Name"),
-		lastName: Joi.string().required().label("Last Name"),
-		email: Joi.string().email().required().label("Email"),
-		password: Joi.string().required().label("Password"),
-	});
-	return schema.validate(data);
-};
 
 module.exports = router;

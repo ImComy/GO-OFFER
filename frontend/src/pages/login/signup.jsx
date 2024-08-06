@@ -12,6 +12,7 @@ function Signup() {
     lastName: "",
     email: "",
     password: "",
+    phone:"",
   });
   const [error, setError] = useState("");
   const navigate = useNavigate();
@@ -78,6 +79,15 @@ function Signup() {
             name='password'
             className='inputelementpass'
             value={data.password}
+            onChange={handleChange}
+            required
+          />
+          <input
+            type='text'
+            placeholder='Phone Number'
+            name='phone'
+            className='inputelementpass'
+            value={data.phone}
             onChange={handleChange}
             required
           />
