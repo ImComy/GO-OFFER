@@ -35,6 +35,7 @@ const Couponscards = [
 
 function Profile() {
   const [email, setEmail] = useState('');
+  const [phone, setphone] = useState('');
 
   useEffect(() => {
     const fetchUserData = async () => {
@@ -45,6 +46,7 @@ function Profile() {
             headers: { Authorization: `Bearer ${token}` }
           });
           setEmail(response.data.email);
+          setphone(response.data.phone);
         } catch (error) {
           console.error('Failed to fetch user data:', error);
         }
@@ -72,7 +74,7 @@ function Profile() {
           <div className='profile-left'>
             <img src='./patricbateman.png' className='pfp' alt='Profile' />
             <p className='profile-email'>{email}</p>
-            <p className='profile-phone'>+93 123456789 </p>
+            <p className='profile-phone'>{phone} </p>
             <button className='profile-logout' onClick={handleLogout}>Log Out</button>
             <div className='profile-statics'>
               <div className='profile-line'></div>

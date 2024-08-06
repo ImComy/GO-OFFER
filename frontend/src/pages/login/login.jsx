@@ -11,6 +11,7 @@ function Login() {
 
 	const [data, setData] = useState({ email: "", password: "" });
 	const [error, setError] = useState("");
+    const navigate = useNavigate();
 
 	const handleChange = ({ currentTarget: input }) => {
 		setData({ ...data, [input.name]: input.value });
@@ -23,6 +24,7 @@ function Login() {
 			const { data: res } = await axios.post(url, data);
 			console.log(res);
 			localStorage.setItem("token", res.data);
+            navigate('/');
 
 		} catch (error) {
 			if (error.response && error.response.status >= 400 && error.response.status <= 500) {
