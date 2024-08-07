@@ -6,7 +6,7 @@ import axios from 'axios';
 const OfferCards = ({ offerImageHeader, offerImageBackground, discount, ending, name }) => {
   const handleGetOfferClick = async () => {
     try {
-      const token = localStorage.getItem('token'); // Assuming the token is stored in local storage
+      const token = localStorage.getItem('token');
       const offer = { offerImageHeader, offerImageBackground, discount, ending, name };
 
       const response = await axios.post('http://localhost:8000/api/users/add-offer', { token, offer }, {
@@ -15,7 +15,7 @@ const OfferCards = ({ offerImageHeader, offerImageBackground, discount, ending, 
         }
       });
 
-      console.log(response.data); // Handle successful response
+      console.log(response.data);
     } catch (error) {
       console.error('Error adding offer:', error.response ? error.response.data : error.message);
     }

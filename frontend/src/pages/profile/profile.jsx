@@ -10,18 +10,7 @@ import { IoTicketSharp } from "react-icons/io5";
 import { FaStore } from "react-icons/fa";
 import { IoMdSettings } from "react-icons/io";
 import AppcouponsCardslide from '../../assets/appCouponscards/appcouponscardslider';
-import AppofferCardslide from '../../assets/offersCards/appoffercardslide';
-import { useLocation, useNavigate } from 'react-router-dom';
-
-const offercards = [
-  { offerImageHeader: './nike.svg', offerImageBackground: './gigachad.png', discount: 40, ending: "18 days", name: 'Nike' },
-  { offerImageHeader: './offericon.svg', offerImageBackground: './market.png', discount: 40, ending: "18 days", name: 'Domino'},
-  { offerImageHeader: './mac.svg', offerImageBackground: './macmeal.png', discount: 40, ending: "18 days", name:'Macdonald\'s'},
-  { offerImageHeader: './google.svg', offerImageBackground: './googleplace.png', discount: 40, ending: "18 days",name:'Google'},
-  { offerImageHeader: './nike.svg', offerImageBackground: './gigachad.png', discount: 40, ending: "18 days", name: 'Nike' },
-  { offerImageHeader: './mac.svg', offerImageBackground: './macmeal.png', discount: 40, ending: "18 days", name:'Macdonald\'s'},
-  { offerImageHeader: './google.svg', offerImageBackground: './googleplace.png', discount: 40, ending: "18 days",name:'Google'},
-];
+import AppofferCardslide from '../../assets/offersCards/appoffercardslide'
 
 const Couponscards = [
   { couponsimageheader: './nike.svg', discount: 40, name: "Nike" },
@@ -36,6 +25,8 @@ const Couponscards = [
 function Profile() {
   const [email, setEmail] = useState('');
   const [phone, setphone] = useState('');
+  const [offers, setOffers] = useState([]);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchUserData = async () => {
@@ -53,17 +44,35 @@ function Profile() {
       }
     };
 
-    fetchUserData();
-  }, []);
+    const fetchOffers = async () => {
+      const token = localStorage.getItem('token');
+      if (token) {
+        try {
+          const response = await axios.get('http://localhost:8000/api/users/offers', {
+            headers: { Authorization: `Bearer ${token}` }
+          });
+          if (response.data && Array.isArray(response.data)) {
+            setOffers(response.data);
+            console.log('Fetched offers:', response.data);
+          } else {
+            console.warn('Offers data is not an array or is missing', response.data);
+          }
+        } catch (err) {
+          console.error('Error fetching offers:', err.response ? err.response.data.message : err.message);
+          setError(err.response ? err.response.data.message : err.message);
+        }
+      }
+    };
 
-  const navigate = useNavigate();
+    fetchUserData();
+    fetchOffers();
+  }, []);
 
   const handleLogout = () => {
     localStorage.removeItem("token");
-    navigate('/');
+    window.location.href = '/';
   };
-
-  return (
+return (
     <div className='profile-container'>
       <Navigation />
       <div className='profileheader'>
@@ -100,7 +109,9 @@ function Profile() {
               <p>Flat 50% OFF </p>
               <p>Flat 20% OFF </p>
             </div>
-            <AppofferCardslide cardsObject={offercards} className='profile-offerslider' />
+            <div>
+            <AppofferCardslide cardsObject={offers} className='profile-offerslider' />
+            </div>
           </div>
         </div>
       </div>

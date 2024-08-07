@@ -8,7 +8,7 @@ router.post('/', async (req, res) => {
     const { token, offer } = req.body;
 
     if (!token || !offer) {
-      return res.status(400).send({ message: 'Token and offer are required' });
+      return res.status(400).send({ message: 'Token and Card are required' });
     }
 
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
@@ -24,7 +24,7 @@ router.post('/', async (req, res) => {
     user.offers.push(offer);
     await user.save();
 
-    res.status(200).json({ message: 'Offer added successfully', user });
+    res.status(200).json({ message: 'Card added successfully', user });
   } catch (error) {
     console.error('Error adding offer:', error);
     res.status(500).json({ message: 'Internal Server Error' });

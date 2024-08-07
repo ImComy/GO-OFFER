@@ -64,4 +64,29 @@ router.get('/', async (req, res) => {
   }
 });
 
+// Get user's offers details
+router.get('/offers', async (req, res) => {
+  try {
+    const token = req.headers['authorization']?.split(' ')[1];
+    if (!token) {
+      return res.status(401).send({ message: 'Access denied. No token provided.' });
+    }
+
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    if (!decoded) {
+      return res.status(401).send({ message: 'Invalid token' });
+    }
+
+    const user = await User.findById(decoded._id).select('offers');
+    if (!user) {
+      return res.status(404).send({ message: 'User not found.' });
+    }
+
+    res.status(200).json(user.offers); // Send back only the offers
+  } catch (error) {
+    console.error('Error fetching user offers:', error.message);
+    res.status(500).send({ message: 'Internal Server Error' });
+  }
+});
+
 module.exports = router;

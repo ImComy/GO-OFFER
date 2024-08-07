@@ -73,16 +73,6 @@ function App() {
     }
   };
 
-  const addCard = async () => {
-    try {
-      const response = await axios.post('/api/users', userData);
-      console.log('Card added successfully!');
-    } catch (error) {
-      console.error('Error adding user:', error);
-      console.log('Failed to add user.');
-    }
-  };
-
   return (
     <div className="app-container">
       <div className="navigation">

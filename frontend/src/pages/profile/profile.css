@@ -125,3 +125,9 @@
     border-bottom: 2px solid #FA6619;
     color: #FA6619;
 }
+
+.profile-offerslider{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}

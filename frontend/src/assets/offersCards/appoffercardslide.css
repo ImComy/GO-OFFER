@@ -2,14 +2,16 @@
   display: flex;
   justify-content:center;
   align-items:center;
+  gap:0px;
 }
 
 .slider-wrapper{
   display:flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 0px;
   justify-content:center;
   align-items:center;
+  position:relative;
 }
 
 .slider-content {
@@ -17,6 +19,7 @@
   gap: 30px;
   justify-content:center;
   align-items:center;
+  margin-bottom:20px;
 }
 
 .slider-dots {
@@ -82,4 +85,15 @@
   color: white;
   font-size: 30px;
   cursor: pointer;
+}
+.profileslider-button{
+  color: #FA6619;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.profileslider-button.next{
+}
+
+.profileslider-button.prev{
 }
