@@ -21,10 +21,11 @@ app.use(cors({
 app.use(express.json());
 
 // Example route
+const addOfferRoutes = require('./routes/addOffer');
+
 app.use('/api/users', userRoutes);
 app.use('/api/auth', authRoutes);
-app.use('/api/users', require('./routes/users'));
-app.use('/api/auth', require('./routes/auth'));
+app.use('/api/users/add-offer', addOfferRoutes);
 
 // Start the server
 const port = process.env.PORT || 8000;

@@ -16,6 +16,7 @@ import AppstoresCardslide from '../../assets/appstorescards/appstorescardsslider
 import Review from '../../assets/reviews/review';
 import Download from '../../assets/appdownload/appdownload';
 import BlogPromotion from './blog/BlogPromotion'
+import axios from 'axios';
 
 const sliderimages = [
   '3f40ca489b925fa4988ef4a8671b808b.png',
@@ -69,6 +70,16 @@ function App() {
   const handleClickOutside = (event) => {
     if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
       setIsOpen(false);
+    }
+  };
+
+  const addCard = async () => {
+    try {
+      const response = await axios.post('/api/users', userData);
+      console.log('Card added successfully!');
+    } catch (error) {
+      console.error('Error adding user:', error);
+      console.log('Failed to add user.');
     }
   };
 
