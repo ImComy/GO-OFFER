@@ -10,6 +10,12 @@ const offerSchema = new mongoose.Schema({
   discount: { type: Number, required: true },
   ending: { type: String, required: true },
   name: { type: String, required: true },
+  stars: { type: Number, required: true },
+  number: { type: Number, required: true },
+  name2: { type: String, required: true },
+  beforeprice: { type: String, required: true },
+  afterprice: { type: String, required: true },
+  currency: { type: String, required: true },
 });
 
 // Coupon schema
@@ -48,22 +54,45 @@ const validate = (data) => {
     phone: Joi.string().required().label("Phone"),
     offers: Joi.array().items(
       Joi.object({
-        offerImageHeader: Joi.string().label("Offer Image Header"),
-        offerImageBackground: Joi.string().label("Offer Image Background"),
-        discount: Joi.number().label("Discount"),
-        ending: Joi.string().label("Ending"),
-        name: Joi.string().label("Name"),
+        offerImageHeader: Joi.string().required().label("Offer Image Header"),
+        offerImageBackground: Joi.string().required().label("Offer Image Background"),
+        discount: Joi.number().required().label("Discount"),
+        ending: Joi.string().required().label("Ending"),
+        name: Joi.string().required().label("Name"),
+        stars: Joi.number().required().label("Stars"),
+        number: Joi.number().required().label("Number"),
+        name2: Joi.string().required().label("Name2"),
+        beforeprice: Joi.string().required().label("Before Price"),
+        afterprice: Joi.string().required().label("After Price"),
+        currency: Joi.string().required().label("Currency"),
       })
     ).label("Offers"),
     coupons: Joi.array().items(
       Joi.object({
-        couponsimageheader: Joi.string().label("Coupons Image Header"),
-        discount: Joi.number().label("Discount"),
-        name: Joi.string().label("Name"),
+        couponsimageheader: Joi.string().required().label("Coupons Image Header"),
+        discount: Joi.number().required().label("Discount"),
+        name: Joi.string().required().label("Name"),
       })
     ).label("Coupons"),
   });
   return schema.validate(data);
 };
 
-module.exports = { User, validate };
+const validateOffer = (offer) => {
+  const schema = Joi.object({
+    offerImageHeader: Joi.string().required().label("Offer Image Header"),
+    offerImageBackground: Joi.string().required().label("Offer Image Background"),
+    discount: Joi.number().required().label("Discount"),
+    ending: Joi.string().required().label("Ending"),
+    name: Joi.string().required().label("Name"),
+    stars: Joi.number().required().label("Stars"),
+    number: Joi.number().required().label("Number"),
+    name2: Joi.string().required().label("Name2"),
+    beforeprice: Joi.string().required().label("Before Price"),
+    afterprice: Joi.string().required().label("After Price"),
+    currency: Joi.string().required().label("Currency"),
+  });
+  return schema.validate(offer);
+};
+
+module.exports = { User, validate, validateOffer };

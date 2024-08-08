@@ -82,7 +82,7 @@ router.get('/offers', async (req, res) => {
       return res.status(404).send({ message: 'User not found.' });
     }
 
-    res.status(200).json(user.offers); // Send back only the offers
+    res.status(200).json(user.offers);
   } catch (error) {
     console.error('Error fetching user offers:', error.message);
     res.status(500).send({ message: 'Internal Server Error' });
@@ -102,7 +102,7 @@ router.delete('/offers/:offerId', async (req, res) => {
     }
 
     const userId = decoded._id;
-    const offerId = req.params.offerId; // Get ID from URL parameter
+    const offerId = req.params.offerId;
 
     const user = await User.findById(userId);
     if (!user) {

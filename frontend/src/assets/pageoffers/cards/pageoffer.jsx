@@ -14,8 +14,30 @@ const OffersCardspage = ({
   name2 = 'McDonald’s',
   beforeprice = '59,000',
   afterprice = '500',
-  currency = 'EGP'
+  currency = 'EGP',
+  ending,
+  isProfilePage,
+  onButtonClick,
 }) => {
+
+    const handleGetOfferClick = async () => {
+    try {
+      const token = localStorage.getItem('token');
+      const offer = { offerImageHeader, offerImageBackground, discount, ending, name };
+
+      const response = await axios.post('http://localhost:8000/api/users/add-offer', { token, offer }, {
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      });
+
+      console.log(response.data);
+      onButtonClick(offer);
+    } catch (error) {
+      console.error('Error adding offer:', error.response ? error.response.data : error.message);
+    }
+  };
+
   return (
     <div className='offercard-big-container'>
       <div className='offerpage-container' style={{ backgroundImage: `url(${offerImageBackground})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>

@@ -92,7 +92,6 @@ function AppofferCardslide({ cardsObject }) {
                 <OfferCards
                   key={cardData._id}
                   {...cardData}
-                  onButtonClick={handleButtonClick}
                   isProfilePage={isProfilePage}
                   onRemoveOffer={handleRemoveOffer}
                   offerId={cardData._id}
@@ -115,17 +114,20 @@ function AppofferCardslide({ cardsObject }) {
         </div>
       )}
       {offers.length <= 4 && (
-        <div>
+        <div className="slider-wrapper">
+        <div className="slider-flex">
+        <div className="slider-content">
           {offers.map((cardData, index) => (
             <OfferCards
               key={cardData._id}
               {...cardData}
-              onButtonClick={handleButtonClick}
               isProfilePage={isProfilePage}
               onRemoveOffer={handleRemoveOffer}
               offerId={cardData._id}
             />
           ))}
+        </div>
+        </div>
         </div>
       )}
       {clickedOffer && (

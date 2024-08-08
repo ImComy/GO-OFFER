@@ -3,11 +3,39 @@ import './offersCards.css';
 import { FiClock } from "react-icons/fi";
 import axios from 'axios';
 
-const OfferCards = ({ offerImageHeader, offerImageBackground, discount, ending, name, isProfilePage, offerId, onRemoveOffer, onButtonClick }) => {
+const OfferCards = ({
+  offerImageHeader,
+  offerImageBackground,
+  discount,
+  ending,
+  name,
+  isProfilePage,
+  offerId,
+  onRemoveOffer,
+  onButtonClick,
+  stars,
+  number,
+  name2,
+  beforeprice,
+  afterprice,
+  currency
+}) => {
   const handleGetOfferClick = async () => {
     try {
       const token = localStorage.getItem('token');
-      const offer = { offerImageHeader, offerImageBackground, discount, ending, name };
+      const offer = {
+        offerImageHeader: offerImageHeader || '',
+        offerImageBackground: offerImageBackground || '',
+        discount: discount || 0,
+        ending: ending || '',
+        name: name || '',
+        stars: stars || 0,
+        number: number || 0,
+        name2: name2 || '',
+        beforeprice: beforeprice || '',
+        afterprice: afterprice || '',
+        currency: currency || ''
+      };
 
       const response = await axios.post('http://localhost:8000/api/users/add-offer', { token, offer }, {
         headers: {
