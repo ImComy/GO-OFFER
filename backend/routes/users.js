@@ -89,4 +89,45 @@ router.get('/offers', async (req, res) => {
   }
 });
 
+router.delete('/offers/:offerId', async (req, res) => {
+  try {
+    const token = req.headers['authorization']?.split(' ')[1];
+    if (!token) {
+      return res.status(401).send({ message: 'Access denied. No token provided.' });
+    }
+
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    if (!decoded) {
+      return res.status(401).send({ message: 'Invalid token' });
+    }
+
+    const userId = decoded._id;
+    const offerId = req.params.offerId; // Get ID from URL parameter
+
+    const user = await User.findById(userId);
+    if (!user) {
+      return res.status(404).send({ message: 'User not found.' });
+    }
+
+    console.log('User offers before removal:', user.offers);
+    console.log('Offer ID to remove:', offerId);
+
+    // Filter out the offer to remove
+    const initialOfferCount = user.offers.length;
+    user.offers = user.offers.filter((offer) => offer._id.toString() !== offerId);
+    const finalOfferCount = user.offers.length;
+
+
+
+    await user.save();
+
+    console.log('User offers after removal:', user.offers);
+    res.status(200).json({ message: 'Offer removed successfully' });
+  } catch (error) {
+    console.error('Error removing offer:', error.message);
+    res.status(500).send({ message: 'Internal Server Error' });
+  }
+});
+
+
 module.exports = router;

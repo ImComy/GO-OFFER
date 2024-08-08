@@ -1,17 +1,21 @@
 import React, { useState } from 'react';
-import { MdArrowForwardIos } from "react-icons/md";
-import { MdArrowBackIosNew } from "react-icons/md";
+import { useLocation } from 'react-router-dom';
+import { MdArrowForwardIos, MdArrowBackIosNew } from "react-icons/md";
 import OfferCards from './cards/offersCards';
 import './appoffercardslide.css';
 
 function AppofferCardslide({ cardsObject }) {
-  if (!cardsObject || !cardsObject.length) {
+  const location = useLocation();
+  const isProfilePage = location.pathname === '/profile';
+
+  if (!Array.isArray(cardsObject) || cardsObject.length === 0) {
     return <p>No cards to display.</p>;
   }
 
   const [currentSlide, setCurrentSlide] = useState(0);
   const [clickedOffer, setClickedOffer] = useState(null);
-  const maxSlide = Math.ceil(cardsObject.length / 4) - 1;
+  const [offers, setOffers] = useState(cardsObject);
+  const maxSlide = Math.ceil(offers.length / 4) - 1;
 
   const handleNextSlide = () => {
     if (currentSlide < maxSlide) {
@@ -32,7 +36,7 @@ function AppofferCardslide({ cardsObject }) {
   const handleButtonClick = async (offer) => {
     const token = localStorage.getItem("token");
     try {
-      const response = await fetch("/api/add-offer", {
+      const response = await fetch("http://localhost:8000/api/users/add-offer", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -51,31 +55,56 @@ function AppofferCardslide({ cardsObject }) {
     }
   };
 
+  const handleRemoveOffer = async (offerId) => {
+    const token = localStorage.getItem('token');
+    try {
+      const response = await fetch(`http://localhost:8000/api/users/offers/${offerId}`, {
+        method: 'DELETE',
+        headers: {
+          'Authorization': `Bearer ${token}`,
+          'Content-Type': 'application/json',
+        },
+      });
+      const data = await response.json();
+      if (response.ok) {
+        console.log("Offer removed successfully", data);
+        setOffers(offers.filter((offer) => offer._id !== offerId));
+      } else {
+        console.error("Error removing offer:", data.message);
+      }
+    } catch (error) {
+      console.error("Error removing offer:", error);
+    }
+  }
+
   const dots = Array(maxSlide + 1).fill(null);
 
   return (
     <div className="cardslide-container">
-      {cardsObject.length > 4 && (
+      {offers.length > 4 && (
         <div className="slider-wrapper">
           <div className="slider-flex">
             <button className="slider-button prev" onClick={handlePrevSlide}>
               <MdArrowBackIosNew />
             </button>
             <div className="slider-content">
-              {cardsObject
-                .slice(currentSlide * 4, (currentSlide + 1) * 4)
-                .map((cardData, index) => (
-                  cardData && (
-                    <OfferCards key={index} {...cardData} onButtonClick={handleButtonClick} />
-                  )
-                ))}
+              {offers.slice(currentSlide * 4, (currentSlide + 1) * 4).map((cardData, index) => (
+                <OfferCards
+                  key={cardData._id}
+                  {...cardData}
+                  onButtonClick={handleButtonClick}
+                  isProfilePage={isProfilePage}
+                  onRemoveOffer={handleRemoveOffer}
+                  offerId={cardData._id}
+                />
+              ))}
             </div>
             <button className="slider-button next" onClick={handleNextSlide}>
               <MdArrowForwardIos />
             </button>
           </div>
           <div className="slider-dots">
-            {dots.map((_, index) => (
+            {Array(maxSlide + 1).fill(null).map((_, index) => (
               <span
                 key={index}
                 className={`slider-dot ${currentSlide === index ? 'active' : ''}`}
@@ -85,10 +114,17 @@ function AppofferCardslide({ cardsObject }) {
           </div>
         </div>
       )}
-      {cardsObject.length <= 4 && (
+      {offers.length <= 4 && (
         <div>
-          {cardsObject.map((cardData, index) => (
-            <OfferCards key={index} {...cardData} onButtonClick={handleButtonClick} />
+          {offers.map((cardData, index) => (
+            <OfferCards
+              key={cardData._id}
+              {...cardData}
+              onButtonClick={handleButtonClick}
+              isProfilePage={isProfilePage}
+              onRemoveOffer={handleRemoveOffer}
+              offerId={cardData._id}
+            />
           ))}
         </div>
       )}
@@ -99,6 +135,6 @@ function AppofferCardslide({ cardsObject }) {
       )}
     </div>
   );
-}
+};
 
 export default AppofferCardslide;
