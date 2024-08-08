@@ -3,27 +3,42 @@ import './pageoffers.css';
 import { FaStar } from "react-icons/fa";
 import { FaStarHalfAlt } from "react-icons/fa";
 import { BsPeopleFill } from "react-icons/bs";
+import axios from 'axios';
 
 const OffersCardspage = ({
-  offerImageHeader = './mac.svg',
-  offerImageBackground = './macmeal.png',
-  discount = 20,
-  name = 'McDonald’s Something',
-  stars = 4.5,
-  number = 500,
-  name2 = 'McDonald’s',
-  beforeprice = '59,000',
-  afterprice = '500',
-  currency = 'EGP',
+  offerImageHeader,
+  offerImageBackground,
+  discount,
   ending,
+  name,
   isProfilePage,
+  offerId,
+  onRemoveOffer,
   onButtonClick,
+  stars,
+  number,
+  name2,
+  beforeprice,
+  afterprice,
+  currency
 }) => {
 
-    const handleGetOfferClick = async () => {
+  const handleGetOfferClick = async () => {
     try {
       const token = localStorage.getItem('token');
-      const offer = { offerImageHeader, offerImageBackground, discount, ending, name };
+      const offer = {
+        offerImageHeader: offerImageHeader || '',
+        offerImageBackground: offerImageBackground || '',
+        discount: discount || 0,
+        ending: ending || '',
+        name: name || '',
+        stars: stars || 0,
+        number: number || 0,
+        name2: name2 || '',
+        beforeprice: beforeprice || '',
+        afterprice: afterprice || '',
+        currency: currency || ''
+      };
 
       const response = await axios.post('http://localhost:8000/api/users/add-offer', { token, offer }, {
         headers: {
@@ -53,10 +68,15 @@ const OffersCardspage = ({
           <p className='offerpage-ratings'><BsPeopleFill /> {number}</p>
         </div>
         <p className='offerpage-name2'>{name2}</p>
-        <div className='offerpage-button'>
+        <div className='pageoffer-buttons'>
+        <button className='offerpage-button' onClick={handleGetOfferClick}>
           <p className='offerpage-currency'>{currency}</p>
           <p className='offerpage-beforeprice'><s>{currency} {beforeprice}</s></p>
           <p className='offerpage-afterprice'>{currency} {afterprice}</p>
+        </button>
+        <button className="offercard-button-hover" onClick={handleGetOfferClick}>
+          Get Offer
+        </button>
         </div>
       </div>
     </div>

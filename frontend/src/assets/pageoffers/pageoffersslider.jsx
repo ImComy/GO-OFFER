@@ -7,7 +7,7 @@ function Offerpagecardslide({ cardsObject = [] }) {
   if (!cardsObject.length) {
     return <p>No cards to display.</p>;
   }
-
+  const [offers, setOffers] = useState(cardsObject);
   const [currentSlide, setCurrentSlide] = useState(0);
   const [animationClass, setAnimationClass] = useState('');
   const cardsPerPage = 6;

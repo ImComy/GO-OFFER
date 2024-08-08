@@ -83,6 +83,18 @@
   margin-bottom: 16px;
 }
 
+.pageoffer-buttons{
+  position: relative;
+  &:hover {
+    .offerpage-button{
+      opacity: 0;
+    }
+    .offercard-button-hover{
+      opacity: 1;
+    }
+  }
+}
+
 .offerpage-button {
   display: flex;
   align-items: center;
@@ -90,10 +102,36 @@
   background-color: #FA6619;
   border-radius:13px;
   padding:6px;
-  transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out;
-    &:hover {
-      background-color: #F85A13;
-      transform: scale(1.05);
+  transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
+  position: relative;
+  z-index: 1;
+  &:hover {
+    background-color: #F85A13;
+    transform: scale(1.05);
+  }
+}
+
+.offercard-button-hover{
+  color: #FFF;
+  font-family: Inter;
+  font-size: 21.457px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  width: 200px;
+  height: 70px;
+  flex-shrink: 0;
+  border-radius: 13.228px;
+  background: #FA6619;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
+  &:hover {
+    background-color: rgba(245, 93, 0, 1);
+    transform: scale(1.05);
   }
 }
 

@@ -11,103 +11,22 @@ import { IoIosArrowDown } from "react-icons/io";
 import Offerpagecardslide from '../../assets/pageoffers/pageoffersslider';
 import React, { useState, useRef, useEffect } from 'react';
 
-const cardsObject = [
-  {
-    offerImageHeader: './mac.svg',
-    offerImageBackground: './macmeal.png',
-    discount: 20,
-    name: 'McDonald’s Something',
-    stars: 4.5,
-    number: 500,
-    name2: 'McDonald’s',
-    beforeprice: '59,000',
-    afterprice: '500',
-    currency: 'EGP'
-  },
-  {
-    offerImageHeader: './mac.svg',
-    offerImageBackground: './macmeal.png',
-    discount: 20,
-    name: 'McDonald’s Something',
-    stars: 4.5,
-    number: 500,
-    name2: 'McDonald’s',
-    beforeprice: '59,000',
-    afterprice: '500',
-    currency: 'EGP'
-  },
-  {
-    offerImageHeader: './mac.svg',
-    offerImageBackground: './macmeal.png',
-    discount: 20,
-    name: 'McDonald’s Something',
-    stars: 4.5,
-    number: 500,
-    name2: 'McDonald’s',
-    beforeprice: '59,000',
-    afterprice: '500',
-    currency: 'EGP'
-  },
-  {
-    offerImageHeader: './mac.svg',
-    offerImageBackground: './macmeal.png',
-    discount: 20,
-    name: 'McDonald’s Something',
-    stars: 4.5,
-    number: 500,
-    name2: 'McDonald’s',
-    beforeprice: '59,000',
-    afterprice: '500',
-    currency: 'EGP'
-  },
-  {
-    offerImageHeader: './mac.svg',
-    offerImageBackground: './macmeal.png',
-    discount: 20,
-    name: 'McDonald’s Something',
-    stars: 4.5,
-    number: 500,
-    name2: 'McDonald’s',
-    beforeprice: '59,000',
-    afterprice: '500',
-    currency: 'EGP'
-  },
-  {
-    offerImageHeader: './mac.svg',
-    offerImageBackground: './macmeal.png',
-    discount: 20,
-    name: 'McDonald’s Something',
-    stars: 4.5,
-    number: 500,
-    name2: 'McDonald’s',
-    beforeprice: '59,000',
-    afterprice: '500',
-    currency: 'EGP'
-  },
-  {
-    offerImageHeader: './mac.svg',
-    offerImageBackground: './macmeal.png',
-    discount: 20,
-    name: 'McDonald’s Something',
-    stars: 4.5,
-    number: 500,
-    name2: 'McDonald’s',
-    beforeprice: '59,000',
-    afterprice: '500',
-    currency: 'EGP'
-  },
-  {
-    offerImageHeader: './mac.svg',
-    offerImageBackground: './macmeal.png',
-    discount: 20,
-    name: 'McDonald’s Something',
-    stars: 4.5,
-    number: 500,
-    name2: 'McDonald’s',
-    beforeprice: '59,000',
-    afterprice: '500',
-    currency: 'EGP'
-  },
+const offercards = [
+  {offerImageHeader:'./nike.svg',  offerImageBackground:'./gigachad.png', discount: 40, ending: "18 days", name:'Nike', stars:4.5, number: 500, name2: 'McDonald’s',beforeprice: '59,000', afterprice: '500', currency: 'EGP'},
+
+  {offerImageHeader:'./offericon.svg',  offerImageBackground:'./market.png', discount: 40, ending: "18 days", name:'Domino', stars:2.5, number: 500, name2: 'McDonald’s',beforeprice: '59,000', afterprice: '500', currency: 'EGP'},
+
+  {offerImageHeader:'./mac.svg',  offerImageBackground:'./macmeal.png', discount: 40, ending: "18 days", name:'Macdonald\'s', stars:3, number: 500, name2: 'McDonald’s',beforeprice: '59,000', afterprice: '500', currency: 'EGP'},
+
+  {offerImageHeader:'./google.svg',  offerImageBackground:'./googleplace.png', discount: 40, ending: "18 days", name:'Google', stars:5, number: 500, name2: 'McDonald’s',beforeprice: '59,000', afterprice: '500', currency: 'EGP'},
+
+  {offerImageHeader:'./nike.svg',  offerImageBackground:'./fate.png', discount: 40, ending: "18 days", name:'Nike', stars:4.5, number: 500, name2: 'McDonald’s',beforeprice: '59,000', afterprice: '500', currency: 'EGP'},
+
+  {offerImageHeader:'./offericon.svg',  offerImageBackground:'./uwu.png', discount: 40, ending: "18 days", name:'Domino', stars:2.5, number: 500, name2: 'McDonald’s',beforeprice: '59,000', afterprice: '500', currency: 'EGP'},
+
+  {offerImageHeader:'./mac.svg',  offerImageBackground:'./macmeal.png', discount: 40, ending: "18 days", name:'Macdonald\'s', stars:3, number: 500, name2: 'McDonald’s',beforeprice: '59,000', afterprice: '500', currency: 'EGP'},
+
+  {offerImageHeader:'./google.svg',  offerImageBackground:'./googleplace.png', discount: 40, ending: "18 days", name:'Google', stars:5, number: 500, name2: 'McDonald’s',beforeprice: '59,000', afterprice: '500', currency: 'EGP'},
 ]
 
 function Offer() {
@@ -171,7 +90,7 @@ function Offer() {
     </div>
                 </div>
                 <div className='coupons-cards'>
-                  <Offerpagecardslide cardsObject={cardsObject}/>
+                  <Offerpagecardslide cardsObject={offercards}/>
                 </div>
             </div>
             </div>
