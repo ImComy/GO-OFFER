@@ -10,7 +10,7 @@ import { IoTicketSharp } from "react-icons/io5";
 import { FaStore } from "react-icons/fa";
 import { IoMdSettings } from "react-icons/io";
 import AppcouponsCardslide from '../../assets/appCouponscards/appcouponscardslider';
-import AppofferCardslide from '../../assets/offersCards/appoffercardslide'
+import AppofferCardslide from '../../assets/offersCards/appoffercardslide';
 
 const Couponscards = [
   { couponsimageheader: './nike.svg', discount: 40, name: "Nike" },
@@ -24,8 +24,9 @@ const Couponscards = [
 
 function Profile() {
   const [email, setEmail] = useState('');
-  const [phone, setphone] = useState('');
+  const [phone, setPhone] = useState('');
   const [offers, setOffers] = useState([]);
+  const [filteredOffers, setFilteredOffers] = useState([]);
   const [error, setError] = useState(null);
 
   useEffect(() => {
@@ -37,7 +38,7 @@ function Profile() {
             headers: { Authorization: `Bearer ${token}` }
           });
           setEmail(response.data.email);
-          setphone(response.data.phone);
+          setPhone(response.data.phone);
         } catch (error) {
           console.error('Failed to fetch user data:', error);
         }
@@ -53,6 +54,7 @@ function Profile() {
           });
           if (response.data && Array.isArray(response.data)) {
             setOffers(response.data);
+            setFilteredOffers(response.data); // Initialize filteredOffers with all offers
             console.log('Fetched offers:', response.data);
           } else {
             console.warn('Offers data is not an array or is missing', response.data);
@@ -68,11 +70,39 @@ function Profile() {
     fetchOffers();
   }, []);
 
+  useEffect(() => {
+    console.log('Filtered offers:', filteredOffers);
+  }, [filteredOffers]);
+
   const handleLogout = () => {
     localStorage.removeItem("token");
     window.location.href = '/';
   };
-return (
+
+  const [activeIndex, setActiveIndex] = useState(0);
+  const handleClick = (index, discountCriteria) => {
+    setActiveIndex(index);
+    filterOffers(discountCriteria);
+  };
+
+  const filterOffers = (discountCriteria) => {
+    if (discountCriteria === 'All') {
+      setFilteredOffers(offers);
+    } else if (discountCriteria === 'Flat 50% OFF') {
+      const filtered = offers.filter((offer) => offer.discount === 50);
+      setFilteredOffers(filtered);
+    } else if (discountCriteria === 'Flat 20% OFF') {
+      const filtered = offers.filter((offer) => offer.discount === 20);
+      setFilteredOffers(filtered);
+    }
+  };
+
+  const [discountData, setDiscountData] = useState({});
+  const handleGetDiscountData = (discountData) => {
+    setDiscountData(discountData);
+  };
+
+  return (
     <div className='profile-container'>
       <Navigation />
       <div className='profileheader'>
@@ -97,20 +127,32 @@ return (
           </div>
           <div className='profile-right'>
             <h1>My Coupons</h1>
-            <div className='slide-bar'>
-              <p> All </p>
-              <p>Flat 50% OFF </p>
-              <p>Flat 20% OFF </p>
+            <div className="slide-bar">
+              {['All', 'Flat 50% OFF', 'Flat 20% OFF'].map((label, index) => (
+                <button
+                  key={index}
+                  onClick={() => handleClick(index, label)}
+                  className={activeIndex === index ? 'active' : ''}
+                >
+                  {label}
+                </button>
+              ))}
             </div>
             <AppcouponsCardslide cardsObject={Couponscards} />
             <h1>My Offers</h1>
-            <div className='slide-bar'>
-              <p> All </p>
-              <p>Flat 50% OFF </p>
-              <p>Flat 20% OFF </p>
+            <div className="slide-bar">
+              {['All', 'Flat 50% OFF', 'Flat 20% OFF'].map((label, index) => (
+                <button
+                  key={index}
+                  onClick={() => handleClick(index, label)}
+                  className={activeIndex === index ? 'active' : ''}
+                >
+                  {label}
+                </button>
+              ))}
             </div>
             <div>
-            <AppofferCardslide cardsObject={offers} className='profile-offerslider' />
+              <AppofferCardslide cardsObject={filteredOffers} className='profile-offerslider' />
             </div>
           </div>
         </div>

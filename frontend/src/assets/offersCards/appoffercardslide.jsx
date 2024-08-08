@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { MdArrowForwardIos, MdArrowBackIosNew } from "react-icons/md";
 import OfferCards from './cards/offersCards';
@@ -8,14 +8,17 @@ function AppofferCardslide({ cardsObject }) {
   const location = useLocation();
   const isProfilePage = location.pathname === '/profile';
 
-  if (!Array.isArray(cardsObject) || cardsObject.length === 0) {
-    return <p>No cards to display.</p>;
-  }
-
   const [currentSlide, setCurrentSlide] = useState(0);
   const [clickedOffer, setClickedOffer] = useState(null);
-  const [offers, setOffers] = useState(cardsObject);
-  const maxSlide = Math.ceil(offers.length / 4) - 1;
+  const [offers, setOffers] = useState(cardsObject || []);
+  const [maxSlide, setMaxSlide] = useState(0);
+
+  useEffect(() => {
+    // Set offers from cardsObject and calculate maxSlide whenever cardsObject changes
+    setOffers(cardsObject);
+    setMaxSlide(Math.ceil(cardsObject.length / 4) - 1);
+    setCurrentSlide(0); // Reset to first slide when cardsObject changes
+  }, [cardsObject]);
 
   const handleNextSlide = () => {
     if (currentSlide < maxSlide) {
@@ -75,9 +78,7 @@ function AppofferCardslide({ cardsObject }) {
     } catch (error) {
       console.error("Error removing offer:", error);
     }
-  }
-
-  const dots = Array(maxSlide + 1).fill(null);
+  };
 
   return (
     <div className="cardslide-container">
@@ -88,7 +89,7 @@ function AppofferCardslide({ cardsObject }) {
               <MdArrowBackIosNew />
             </button>
             <div className="slider-content">
-              {offers.slice(currentSlide * 4, (currentSlide + 1) * 4).map((cardData, index) => (
+              {offers.slice(currentSlide * 4, (currentSlide + 1) * 4).map((cardData) => (
                 <OfferCards
                   key={cardData._id}
                   {...cardData}
@@ -115,19 +116,19 @@ function AppofferCardslide({ cardsObject }) {
       )}
       {offers.length <= 4 && (
         <div className="slider-wrapper">
-        <div className="slider-flex">
-        <div className="slider-content">
-          {offers.map((cardData, index) => (
-            <OfferCards
-              key={cardData._id}
-              {...cardData}
-              isProfilePage={isProfilePage}
-              onRemoveOffer={handleRemoveOffer}
-              offerId={cardData._id}
-            />
-          ))}
-        </div>
-        </div>
+          <div className="slider-flex">
+            <div className="slider-content">
+              {offers.map((cardData) => (
+                <OfferCards
+                  key={cardData._id}
+                  {...cardData}
+                  isProfilePage={isProfilePage}
+                  onRemoveOffer={handleRemoveOffer}
+                  offerId={cardData._id}
+                />
+              ))}
+            </div>
+          </div>
         </div>
       )}
       {clickedOffer && (
@@ -137,6 +138,6 @@ function AppofferCardslide({ cardsObject }) {
       )}
     </div>
   );
-};
+}
 
 export default AppofferCardslide;

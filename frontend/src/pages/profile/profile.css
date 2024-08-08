@@ -113,15 +113,17 @@
     transition: color 0.2s ease-in-out, transform 0.2s ease-in-out;
 }
 
-.slide-bar p {
+.slide-bar button {
     cursor: pointer;
     border-bottom: 2px solid transparent;
     transition: color 0.2s ease-in-out, transform 0.2s ease-in-out;
     transition: border-bottom 0.2s ease-in-out, transform 0.2s ease-in-out;
+    padding:5px;
+    font-size:20px
 }
 
-.slide-bar p:hover,
-.slide-bar p.active {
+.slide-bar button:hover,
+.slide-bar button.active {
     border-bottom: 2px solid #FA6619;
     color: #FA6619;
 }

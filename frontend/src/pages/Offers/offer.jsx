@@ -12,21 +12,21 @@ import Offerpagecardslide from '../../assets/pageoffers/pageoffersslider';
 import React, { useState, useRef, useEffect } from 'react';
 
 const offercards = [
-  {offerImageHeader:'./nike.svg',  offerImageBackground:'./gigachad.png', discount: 40, ending: "18 days", name:'Nike', stars:4.5, number: 500, name2: 'McDonald’s',beforeprice: '59,000', afterprice: '500', currency: 'EGP'},
+  {offerImageHeader:'./nike.svg',  offerImageBackground:'./gigachad.png', discount: 10, ending: "18 days", name:'Nike', stars:4.5, number: 500, name2: 'McDonald’s',beforeprice: '59,000', afterprice: '500', currency: 'EGP'},
 
-  {offerImageHeader:'./offericon.svg',  offerImageBackground:'./market.png', discount: 40, ending: "18 days", name:'Domino', stars:2.5, number: 500, name2: 'McDonald’s',beforeprice: '59,000', afterprice: '500', currency: 'EGP'},
+  {offerImageHeader:'./offericon.svg',  offerImageBackground:'./market.png', discount: 20, ending: "18 days", name:'Domino', stars:2.5, number: 500, name2: 'McDonald’s',beforeprice: '59,000', afterprice: '500', currency: 'EGP'},
 
-  {offerImageHeader:'./mac.svg',  offerImageBackground:'./macmeal.png', discount: 40, ending: "18 days", name:'Macdonald\'s', stars:3, number: 500, name2: 'McDonald’s',beforeprice: '59,000', afterprice: '500', currency: 'EGP'},
-
-  {offerImageHeader:'./google.svg',  offerImageBackground:'./googleplace.png', discount: 40, ending: "18 days", name:'Google', stars:5, number: 500, name2: 'McDonald’s',beforeprice: '59,000', afterprice: '500', currency: 'EGP'},
-
-  {offerImageHeader:'./nike.svg',  offerImageBackground:'./fate.png', discount: 40, ending: "18 days", name:'Nike', stars:4.5, number: 500, name2: 'McDonald’s',beforeprice: '59,000', afterprice: '500', currency: 'EGP'},
-
-  {offerImageHeader:'./offericon.svg',  offerImageBackground:'./uwu.png', discount: 40, ending: "18 days", name:'Domino', stars:2.5, number: 500, name2: 'McDonald’s',beforeprice: '59,000', afterprice: '500', currency: 'EGP'},
-
-  {offerImageHeader:'./mac.svg',  offerImageBackground:'./macmeal.png', discount: 40, ending: "18 days", name:'Macdonald\'s', stars:3, number: 500, name2: 'McDonald’s',beforeprice: '59,000', afterprice: '500', currency: 'EGP'},
+  {offerImageHeader:'./mac.svg',  offerImageBackground:'./macmeal.png', discount: 30, ending: "18 days", name:'Macdonald\'s', stars:3, number: 500, name2: 'McDonald’s',beforeprice: '59,000', afterprice: '500', currency: 'EGP'},
 
   {offerImageHeader:'./google.svg',  offerImageBackground:'./googleplace.png', discount: 40, ending: "18 days", name:'Google', stars:5, number: 500, name2: 'McDonald’s',beforeprice: '59,000', afterprice: '500', currency: 'EGP'},
+
+  {offerImageHeader:'./nike.svg',  offerImageBackground:'./fate.png', discount: 50, ending: "18 days", name:'Nike', stars:4.5, number: 500, name2: 'McDonald’s',beforeprice: '59,000', afterprice: '500', currency: 'EGP'},
+
+  {offerImageHeader:'./offericon.svg',  offerImageBackground:'./uwu.png', discount: 60, ending: "18 days", name:'Domino', stars:2.5, number: 500, name2: 'McDonald’s',beforeprice: '59,000', afterprice: '500', currency: 'EGP'},
+
+  {offerImageHeader:'./mac.svg',  offerImageBackground:'./macmeal.png', discount: 70, ending: "18 days", name:'Macdonald\'s', stars:3, number: 500, name2: 'McDonald’s',beforeprice: '59,000', afterprice: '500', currency: 'EGP'},
+
+  {offerImageHeader:'./google.svg',  offerImageBackground:'./googleplace.png', discount: 80, ending: "18 days", name:'Google', stars:5, number: 500, name2: 'McDonald’s',beforeprice: '59,000', afterprice: '500', currency: 'EGP'},
 ]
 
 function Offer() {
