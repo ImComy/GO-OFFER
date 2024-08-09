@@ -43,13 +43,20 @@ const offercards = [
 ]
 
 const Couponscards = [
-  {couponsimageheader:'./nike.svg', discount: 40, name: "Nike"},
-  {couponsimageheader:'./offericon.svg', discount: 40, name: "Domino"},
-  {couponsimageheader:'./mac.svg', discount: 40, name: "Macdonald"},
-  {couponsimageheader:'./google.svg', discount: 40, name: "Google"},
-  {couponsimageheader:'./nike.svg', discount: 40, name: "Nike"},
-  {couponsimageheader:'./mac.svg', discount: 40, name: "Macdonald"},
-  {couponsimageheader:'./google.svg', discount: 40, name: "Google"},
+  {couponsimageheader:'./nike.svg', discount: 40, name: "Nike", img2: 'https://tmpfiles.nohat.cc/full-m2i8K9G6N4m2H7Z5.png', text1: ' Exclusive Booking.com deal - Up to 20% off for Genius Members now!', people: 6, text2: " Can be combined with other promotions.", link: 'https://sample.net/?connection=shop&stew=passenger', name: 'Booking', code: "CEVWRTIUWVOYT8E7Y"},
+
+  {couponsimageheader:'./offericon.svg', discount: 40, name: "Domino", img2: 'https://tmpfiles.nohat.cc/full-m2i8K9G6N4m2H7Z5.png', text1: ' Exclusive Booking.com deal - Up to 20% off for Genius Members now!', people: 6, text2: " Can be combined with other promotions.", link: 'https://sample.net/?connection=shop&stew=passenger', name: 'Booking', code: "CEVWRTIUWVOYT8E7Y"},
+
+  {couponsimageheader:'./mac.svg', discount: 40, name: "Macdonald", img2: 'https://tmpfiles.nohat.cc/full-m2i8K9G6N4m2H7Z5.png', text1: ' Exclusive Booking.com deal - Up to 20% off for Genius Members now!', people: 6, text2: " Can be combined with other promotions.", link: 'https://sample.net/?connection=shop&stew=passenger', name: 'Booking', code: "CEVWRTIUWVOYT8E7Y"},
+
+  {couponsimageheader:'./google.svg', discount: 40, name: "Google", img2: 'https://tmpfiles.nohat.cc/full-m2i8K9G6N4m2H7Z5.png', text1: ' Exclusive Booking.com deal - Up to 20% off for Genius Members now!', people: 6, text2: " Can be combined with other promotions.", link: 'https://sample.net/?connection=shop&stew=passenger', name: 'Booking', code: "CEVWRTIUWVOYT8E7Y"},
+
+  {couponsimageheader:'./nike.svg', discount: 40, name: "Nike", img2: 'https://tmpfiles.nohat.cc/full-m2i8K9G6N4m2H7Z5.png', text1: ' Exclusive Booking.com deal - Up to 20% off for Genius Members now!', people: 6, text2: " Can be combined with other promotions.", link: 'https://sample.net/?connection=shop&stew=passenger', name: 'Booking', code: "CEVWRTIUWVOYT8E7Y"},
+
+  {couponsimageheader:'./mac.svg', discount: 40, name: "Macdonald", img2: 'https://tmpfiles.nohat.cc/full-m2i8K9G6N4m2H7Z5.png', text1: ' Exclusive Booking.com deal - Up to 20% off for Genius Members now!', people: 6, text2: " Can be combined with other promotions.", link: 'https://sample.net/?connection=shop&stew=passenger', name: 'Booking', code: "CEVWRTIUWVOYT8E7Y"},
+
+  {couponsimageheader:'./google.svg', discount: 40, name: "Google", img2: 'https://tmpfiles.nohat.cc/full-m2i8K9G6N4m2H7Z5.png', text1: ' Exclusive Booking.com deal - Up to 20% off for Genius Members now!', people: 6, text2: " Can be combined with other promotions.", link: 'https://sample.net/?connection=shop&stew=passenger', name: 'Booking', code: "CEVWRTIUWVOYT8E7Y"},
+
 ]
 
 const StoresCards = [

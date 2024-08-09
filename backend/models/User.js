@@ -23,6 +23,12 @@ const couponSchema = new mongoose.Schema({
   couponsimageheader: { type: String, required: true },
   discount: { type: Number, required: true },
   name: { type: String, required: true },
+  text1: { type: String, required: true },
+  text2: { type: String, required: true },
+  people: { type: Number, required: true },
+  img2: { type: String, required: true },
+  link: { type: String, required: true },
+  code: { type: String, required: true },
 });
 
 // Main user schema
@@ -72,6 +78,12 @@ const validate = (data) => {
         couponsimageheader: Joi.string().required().label("Coupons Image Header"),
         discount: Joi.number().required().label("Discount"),
         name: Joi.string().required().label("Name"),
+        text1: Joi.string().required().label("Text 1"),
+        text2: Joi.string().required().label("Text 2"),
+        people: Joi.number().required().label("People"),
+        img2: Joi.string().required().label("Image 2"),
+        link: Joi.string().required().label("Link"),
+        code: Joi.string().required().label("Code"),
       })
     ).label("Coupons"),
   });
@@ -95,4 +107,20 @@ const validateOffer = (offer) => {
   return schema.validate(offer);
 };
 
-module.exports = { User, validate, validateOffer };
+const validateCoupon = (coupon) => {
+  const schema = Joi.object({
+    couponsimageheader: Joi.string().required().label("Coupons Image Header"),
+    discount: Joi.number().required().label("Discount"),
+    name: Joi.string().required().label("Name"),
+    text1: Joi.string().required().label("Text 1"),
+    text2: Joi.string().required().label("Text 2"),
+    people: Joi.number().required().label("People"),
+    img2: Joi.string().required().label("Image 2"),
+    link: Joi.string().required().label("Link"),
+    code: Joi.string().required().label("Code"),
+  });
+  return schema.validate(coupon);
+};
+
+module.exports = { User, validate, validateOffer, validateCoupon };
+

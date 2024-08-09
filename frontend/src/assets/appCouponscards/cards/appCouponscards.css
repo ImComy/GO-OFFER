@@ -18,6 +18,11 @@
     }
 }
 
+.appCouponscards-item{
+    min-width: 450px ;
+  max-height: 250px;
+}
+
 .appCouponscards-headerimg{
     boder-radius: 50%;
     padding: 15px;

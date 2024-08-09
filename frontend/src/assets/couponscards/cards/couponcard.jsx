@@ -7,7 +7,7 @@ import { BsFillPeopleFill } from "react-icons/bs";
 import { IoMdCheckmarkCircle } from "react-icons/io";
 
 function Couponcards({
-    img = './offericon.svg',
+    couponsimageheader = './offericon.svg',
     code='CEVWRTIUWVOYT8E7Y',
     discount = 50,
     text=' Exclusive Booking.com deal - Up to 20% off for Genius Members now!',
@@ -27,7 +27,7 @@ function Couponcards({
             <div className='couponscardspage-container'>
                 <div className='couponscardspage-header'>
                     <div className='couponscardspage-header-left'>
-                        <img src={img} className='couponscardspage-img' alt='Offer' />
+                        <img src={couponsimageheader} className='couponscardspage-img' alt='Offer' />
                         <p className='couponscardspage-header-text'> {discount}% OFF </p>
                     </div>
                     <div className='couponscardspage-header-right'>
