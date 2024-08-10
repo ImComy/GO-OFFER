@@ -1,0 +1,51 @@
+.arrow-right-co {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #FA6619;
+  border: 2px solid #FA6619;
+  display: inline-block;
+}
+
+.arrow-right-stick-co {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 2px;
+  height: 10px;
+  background-color: white;
+  transform-origin: center;
+  transition: transform 0.1s;
+}
+
+.arrow-right-co:not(:hover) .arrow-right-stick-co:first-child {
+  transform: translate(-90%, -20%) rotate(40deg);
+  margin-left:1px;
+}
+
+.arrow-right-co:not(:hover) .arrow-right-stick-co:last-child {
+  transform: translate(-90%, -80%) rotate(-40deg);
+  margin-left:1px;
+}
+
+.arrow-right-co.no:hover .arrow-right-stick-co.no:first-child {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.arrow-right-co.no:hover .arrow-right-stick-co.no:last-child {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+
+.arrow-right-co.yes:hover .arrow-right-stick-co:first-child {
+  width: 2px;
+  height: 15px;
+  transform: translate(100%, -50%) rotate(45deg);
+}
+
+.arrow-right-co.yes:hover .arrow-right-stick-co:last-child {
+  width: 2px;
+  height: 8px;
+  transform: translate(-300%, -40%) rotate(-45deg);
+}

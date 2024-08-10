@@ -3,6 +3,8 @@ import React, { useState } from 'react';
 import { BsDot } from "react-icons/bs";
 import { IoIosArrowDroprightCircle } from "react-icons/io";
 import axios from 'axios';
+import ArrowRight from '../../arrow/arrow';
+import { useLocation } from 'react-router-dom';
 
 const AppCouponscards = ({
   couponsimageheader,
@@ -16,6 +18,8 @@ const AppCouponscards = ({
   code
 }) => {
   const [coupons, setCoupons] = useState([]);
+  const location = useLocation();
+  const isNotProfile = location.pathname !== '/profile';
 
   const handlePostCouponClick = async () => {
     try {
@@ -57,7 +61,7 @@ const AppCouponscards = ({
       <div className='appCouponscards-ending'>
         <h2 className="appCouponscards-ending-text"> All <span className='appCouponscards-span'>{name}’s</span> Coupons</h2>
         <button className="appCouponscards-ending-button" onClick={handlePostCouponClick}>
-          <IoIosArrowDroprightCircle />
+          <ArrowRight condition={isNotProfile} />
         </button>
       </div>
     </div>
