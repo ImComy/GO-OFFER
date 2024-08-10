@@ -1,20 +1,19 @@
 import React, { useRef } from 'react';
-import { useSpring, animated } from 'react-spring';
 import { IoIosArrowDropleftCircle, IoIosArrowDroprightCircle } from "react-icons/io";
 import AppCouponscards from './cards/appCouponscards';
 import './appcouponscardslider.css';
+import { useSpring, animated } from 'react-spring';
 
 function AppcouponsCardslide({ cardsObject }) {
   const scrollContainerRef = useRef(null);
-
-  if (!cardsObject || !cardsObject.length) {
-    return <p>No cards to display.</p>;
-  }
-
   const [props, set] = useSpring(() => ({
     scrollLeft: 0,
     config: { tension: 280, friction: 60 }
   }));
+
+  if (!cardsObject || !cardsObject.length) {
+    return <p>No cards to display.</p>;
+  }
 
   const scroll = (direction) => {
     if (scrollContainerRef.current) {
@@ -26,7 +25,6 @@ function AppcouponsCardslide({ cardsObject }) {
       set({ scrollLeft: newScrollLeft });
     }
   };
-
   return (
     <div className="couponscardslide-container">
       <button className="couponsslider-button prev" onClick={() => scroll('left')}>
