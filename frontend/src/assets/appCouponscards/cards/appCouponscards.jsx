@@ -1,7 +1,6 @@
 import './appCouponscards.css';
 import React, { useState } from 'react';
 import { BsDot } from "react-icons/bs";
-import { IoIosArrowDroprightCircle } from "react-icons/io";
 import axios from 'axios';
 import ArrowRight from '../../arrow/arrow';
 import { useLocation } from 'react-router-dom';
@@ -15,15 +14,17 @@ const AppCouponscards = ({
   people,
   img2,
   link,
-  code
+  code,
+  couponId,
+  isProfilePage,
+  onRemoveCoupon,
+  onAddCoupon
 }) => {
-  const [coupons, setCoupons] = useState([]);
   const location = useLocation();
   const isNotProfile = location.pathname !== '/profile';
 
   const handlePostCouponClick = async () => {
     try {
-      const token = localStorage.getItem('token');
       const coupon = {
         couponsimageheader: couponsimageheader || '',
         discount: discount || 0,
@@ -35,16 +36,22 @@ const AppCouponscards = ({
         link: link || '',
         code: code || ''
       };
-
-      const response = await axios.post('http://localhost:8000/api/users/add-coupon', { token, coupon }, {
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      });
-
-      console.log(response.data);
+      onAddCoupon(coupon);
     } catch (error) {
       console.error('Error posting coupon:', error.response ? error.response.data : error.message);
+    }
+  };
+
+  const handleRemoveCouponClick = async () => {
+    if (!couponId) {
+      console.error('No couponId provided');
+      return;
+    }
+    try {
+      console.log('Removing coupon with ID:', couponId);
+      onRemoveCoupon(couponId);
+    } catch (error) {
+      console.error('Error removing coupon:', error.response ? error.response.data : error.message);
     }
   };
 
@@ -60,9 +67,21 @@ const AppCouponscards = ({
       </div>
       <div className='appCouponscards-ending'>
         <h2 className="appCouponscards-ending-text"> All <span className='appCouponscards-span'>{name}’s</span> Coupons</h2>
-        <button className="appCouponscards-ending-button" onClick={handlePostCouponClick}>
-          <ArrowRight condition={isNotProfile} />
-        </button>
+        {isNotProfile ? (
+          <button
+            className="appCouponscards-ending-button"
+            onClick={handlePostCouponClick}
+          >
+            <ArrowRight condition={true} />
+          </button>
+        ) : (
+          <button
+            className="appCouponscards-ending-button profile"
+            onClick={handleRemoveCouponClick}
+          >
+            <ArrowRight condition={false} />
+          </button>
+        )}
       </div>
     </div>
   );

@@ -11,6 +11,50 @@ function AppcouponsCardslide({ cardsObject }) {
     config: { tension: 280, friction: 60 }
   }));
 
+  const handleRemoveCoupon = async (couponId) => {
+    const token = localStorage.getItem('token');
+    try {
+      const response = await fetch(`http://localhost:8000/api/users/coupons/${couponId}`, {
+        method: 'DELETE',
+        headers: {
+          'Authorization': `Bearer ${token}`,
+          'Content-Type': 'application/json',
+        },
+      });
+      const data = await response.json();
+      if (response.ok) {
+        console.log("Coupon removed successfully", data);
+        setCoupons(coupons.filter((coupon) => coupon._id !== couponId)); // Update state after deletion
+      } else {
+        console.error("Error removing coupon:", data.message);
+      }
+    } catch (error) {
+      console.error("Error removing coupon:", error);
+    }
+  };
+
+  const handleAddCoupon = async (coupon) => {
+    const token = localStorage.getItem("token");
+    try {
+      const response = await fetch("http://localhost:8000/api/users/add-coupon", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ token, coupon }),
+      });
+      const data = await response.json();
+      if (response.ok) {
+        console.log("Coupon added successfully", data);
+        setCoupons([...coupons, data]); // Update state after addition
+      } else {
+        console.error("Error adding coupon:", data.message);
+      }
+    } catch (error) {
+      console.error("Error adding coupon:", error);
+    }
+  };
+
   if (!cardsObject || !cardsObject.length) {
     return <p>No cards to display.</p>;
   }
@@ -25,6 +69,7 @@ function AppcouponsCardslide({ cardsObject }) {
       set({ scrollLeft: newScrollLeft });
     }
   };
+
   return (
     <div className="couponscardslide-container">
       <button className="couponsslider-button prev" onClick={() => scroll('left')}>
@@ -36,9 +81,15 @@ function AppcouponsCardslide({ cardsObject }) {
         scrollLeft={props.scrollLeft}
       >
         <div className="couponsslider-flex">
-          {cardsObject.map((cardData, index) => (
-            <div className="couponsslider-content" key={index}>
-              <AppCouponscards {...cardData} />
+          {cardsObject.map((cardData) => (
+            <div className="couponsslider-content" key={cardData._id}>
+              <AppCouponscards
+                {...cardData}
+                couponId={cardData._id}  // Pass couponId here
+                isProfilePage={location.pathname === '/profile'}
+                onRemoveCoupon={handleRemoveCoupon}
+                onAddCoupon={handleAddCoupon}
+              />
             </div>
           ))}
         </div>

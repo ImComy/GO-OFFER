@@ -52,7 +52,7 @@ const OfferCards = ({
 
   const handleRemoveOfferClick = async () => {
     try {
-      console.log('Removing offer with ID:', offerId); // Log the offerId
+      console.log('Removing offer with ID:', offerId);
       const token = localStorage.getItem('token');
       const response = await axios.delete(`http://localhost:8000/api/users/offers/${offerId}`, {
         headers: {

@@ -182,5 +182,49 @@ router.get('/coupons', async (req, res) => {
   }
 });
 
+router.delete('/coupons/:couponId', async (req, res) => {
+  try {
+    const token = req.headers['authorization']?.split(' ')[1];
+    if (!token) {
+      return res.status(401).send({ message: 'Access denied. No token provided.' });
+    }
+
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    if (!decoded) {
+      return res.status(401).send({ message: 'Invalid token' });
+    }
+
+    const userId = decoded._id;
+    const couponId = req.params.couponId;
+
+    const user = await User.findById(userId);
+    if (!user) {
+      return res.status(404).send({ message: 'User not found.' });
+    }
+
+    console.log('User coupons before removal:', user.coupons);
+    console.log('Coupon ID to remove:', couponId);
+
+    // Filter out the coupon to remove
+    const initialCouponCount = user.coupons.length;
+    user.coupons = user.coupons.filter((coupon) => coupon._id.toString() !== couponId);
+    const finalCouponCount = user.coupons.length;
+
+    // Check if any coupons were removed
+    if (initialCouponCount === finalCouponCount) {
+      return res.status(404).send({ message: 'Coupon not found or already removed.' });
+    }
+
+    await user.save();
+
+    console.log('User coupons after removal:', user.coupons);
+    res.status(200).json({ message: 'Coupon removed successfully' });
+  } catch (error) {
+    console.error('Error removing coupon:', error.message);
+    res.status(500).send({ message: 'Internal Server Error' });
+  }
+});
+
+
 
 module.exports = router;

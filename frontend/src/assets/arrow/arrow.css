@@ -8,6 +8,10 @@
   display: inline-block;
 }
 
+.arrow-right-co.hidden {
+  display:none;
+}
+
 .arrow-right-stick-co {
   position: absolute;
   top: 50%;

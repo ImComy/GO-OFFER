@@ -58,6 +58,10 @@ function AppofferCardslide({ cardsObject }) {
     }
   };
 
+  if (!cardsObject || !cardsObject.length) {
+    return <p>No cards to display.</p>;
+  }
+
   const handleRemoveOffer = async (offerId) => {
     const token = localStorage.getItem('token');
     try {
