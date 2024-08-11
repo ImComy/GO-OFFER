@@ -37,6 +37,7 @@ const AppCouponscards = ({
         code: code || ''
       };
       onAddCoupon(coupon);
+      console.log('Coupon ID:', couponId);
     } catch (error) {
       console.error('Error posting coupon:', error.response ? error.response.data : error.message);
     }

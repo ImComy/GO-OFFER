@@ -12,158 +12,21 @@ import Couponpagecardslide from "../../assets/couponscards/couponcardslider";
 import React, { useState, useRef, useEffect } from 'react';
 
 
-const cardsObject = [
-  {
-    img: './offericon.svg',
-    code: 'CEVWRTIUWVOYT8E7Y',
-    discount: 50,
-    text: ' Exclusive Booking.com deal - Up to 20% off for Genius Members now!',
-    people: 6,
-    img2: 'https://tmpfiles.nohat.cc/full-m2i8K9G6N4m2H7Z5.png',
-    link: 'https://sample.net/?connection=shop&stew=passenger',
-    name: 'Booking'
-  },
-  {
-    img: './offericon.svg',
-    code: 'CEVWRTIUWVOYT8E7Y',
-    discount: 50,
-    text: ' Exclusive Booking.com deal - Up to 20% off for Genius Members now!',
-    people: 6,
-    img2: 'https://tmpfiles.nohat.cc/full-m2i8K9G6N4m2H7Z5.png',
-    link: 'https://sample.net/?connection=shop&stew=passenger',
-    name: 'Booking'
-  },
-  {
-    img: './offericon.svg',
-    code: 'CEVWRTIUWVOYT8E7Y',
-    discount: 50,
-    text: ' Exclusive Booking.com deal - Up to 20% off for Genius Members now!',
-    people: 6,
-    img2: 'https://tmpfiles.nohat.cc/full-m2i8K9G6N4m2H7Z5.png',
-    link: 'https://sample.net/?connection=shop&stew=passenger',
-    name: 'Booking'
-  },
-  {
-    img: './offericon.svg',
-    code: 'CEVWRTIUWVOYT8E7Y',
-    discount: 50,
-    text: ' Exclusive Booking.com deal - Up to 20% off for Genius Members now!',
-    people: 6,
-    img2: 'https://tmpfiles.nohat.cc/full-m2i8K9G6N4m2H7Z5.png',
-    link: 'https://sample.net/?connection=shop&stew=passenger',
-    name: 'Booking'
-  },
-  {
-    img: './offericon.svg',
-    code: 'CEVWRTIUWVOYT8E7Y',
-    discount: 50,
-    text: ' Exclusive Booking.com deal - Up to 20% off for Genius Members now!',
-    people: 6,
-    img2: 'https://tmpfiles.nohat.cc/full-m2i8K9G6N4m2H7Z5.png',
-    link: 'https://sample.net/?connection=shop&stew=passenger',
-    name: 'Booking'
-  },
-  {
-    img: './offericon.svg',
-    code: 'CEVWRTIUWVOYT8E7Y',
-    discount: 50,
-    text: ' Exclusive Booking.com deal - Up to 20% off for Genius Members now!',
-    people: 6,
-    img2: 'https://tmpfiles.nohat.cc/full-m2i8K9G6N4m2H7Z5.png',
-    link: 'https://sample.net/?connection=shop&stew=passenger',
-    name: 'Booking'
-  },
-  {
-    img: './offericon.svg',
-    code: 'CEVWRTIUWVOYT8E7Y',
-    discount: 50,
-    text: ' Exclusive Booking.com deal - Up to 20% off for Genius Members now!',
-    people: 6,
-    img2: 'https://tmpfiles.nohat.cc/full-m2i8K9G6N4m2H7Z5.png',
-    link: 'https://sample.net/?connection=shop&stew=passenger',
-    name: 'Booking'
-  },
-  {
-    img: './offericon.svg',
-    code: 'CEVWRTIUWVOYT8E7Y',
-    discount: 50,
-    text: ' Exclusive Booking.com deal - Up to 20% off for Genius Members now!',
-    people: 6,
-    img2: 'https://tmpfiles.nohat.cc/full-m2i8K9G6N4m2H7Z5.png',
-    link: 'https://sample.net/?connection=shop&stew=passenger',
-    name: 'Booking'
-  },
-  {
-    img: './offericon.svg',
-    code: 'CEVWRTIUWVOYT8E7Y',
-    discount: 50,
-    text: ' Exclusive Booking.com deal - Up to 20% off for Genius Members now!',
-    people: 6,
-    img2: 'https://tmpfiles.nohat.cc/full-m2i8K9G6N4m2H7Z5.png',
-    link: 'https://sample.net/?connection=shop&stew=passenger',
-    name: 'Booking'
-  },
-  {
-    img: './offericon.svg',
-    code: 'CEVWRTIUWVOYT8E7Y',
-    discount: 50,
-    text: ' Exclusive Booking.com deal - Up to 20% off for Genius Members now!',
-    people: 6,
-    img2: 'https://tmpfiles.nohat.cc/full-m2i8K9G6N4m2H7Z5.png',
-    link: 'https://sample.net/?connection=shop&stew=passenger',
-    name: 'Booking'
-  },
-  {
-    img: './offericon.svg',
-    code: 'CEVWRTIUWVOYT8E7Y',
-    discount: 50,
-    text: ' Exclusive Booking.com deal - Up to 20% off for Genius Members now!',
-    people: 6,
-    img2: 'https://tmpfiles.nohat.cc/full-m2i8K9G6N4m2H7Z5.png',
-    link: 'https://sample.net/?connection=shop&stew=passenger',
-    name: 'Booking'
-  },
-  {
-    img: './offericon.svg',
-    code: 'CEVWRTIUWVOYT8E7Y',
-    discount: 50,
-    text: ' Exclusive Booking.com deal - Up to 20% off for Genius Members now!',
-    people: 6,
-    img2: 'https://tmpfiles.nohat.cc/full-m2i8K9G6N4m2H7Z5.png',
-    link: 'https://sample.net/?connection=shop&stew=passenger',
-    name: 'Booking'
-  },
-  {
-    img: './offericon.svg',
-    code: 'CEVWRTIUWVOYT8E7Y',
-    discount: 50,
-    text: ' Exclusive Booking.com deal - Up to 20% off for Genius Members now!',
-    people: 6,
-    img2: 'https://tmpfiles.nohat.cc/full-m2i8K9G6N4m2H7Z5.png',
-    link: 'https://sample.net/?connection=shop&stew=passenger',
-    name: 'Booking'
-  },
-  {
-    img: './offericon.svg',
-    code: 'CEVWRTIUWVOYT8E7Y',
-    discount: 50,
-    text: ' Exclusive Booking.com deal - Up to 20% off for Genius Members now!',
-    people: 6,
-    img2: 'https://tmpfiles.nohat.cc/full-m2i8K9G6N4m2H7Z5.png',
-    link: 'https://sample.net/?connection=shop&stew=passenger',
-    name: 'Booking'
-  },
-  {
-    img: './offericon.svg',
-    code: 'CEVWRTIUWVOYT8E7Y',
-    discount: 50,
-    text: ' Exclusive Booking.com deal - Up to 20% off for Genius Members now!',
-    people: 6,
-    img2: 'https://tmpfiles.nohat.cc/full-m2i8K9G6N4m2H7Z5.png',
-    link: 'https://sample.net/?connection=shop&stew=passenger',
-    name: 'Booking'
-  },
-];
+const Couponscards = [
+  {couponsimageheader:'./nike.svg', discount: 40, name: "Nike", img2: 'https://tmpfiles.nohat.cc/full-m2i8K9G6N4m2H7Z5.png', text1: ' Exclusive Booking.com deal - Up to 20% off for Genius Members now!', people: 6, text2: " Can be combined with other promotions.", link: 'https://sample.net/?connection=shop&stew=passenger', name: 'Booking', code: "CEVWRTIUWVOYT8E7Y", id: 1},
+
+  {couponsimageheader:'./offericon.svg', discount: 50, name: "Domino", img2: 'https://tmpfiles.nohat.cc/full-m2i8K9G6N4m2H7Z5.png', text1: ' Exclusive Booking.com deal - Up to 20% off for Genius Members now!', people: 6, text2: " Can be combined with other promotions.", link: 'https://sample.net/?connection=shop&stew=passenger', name: 'Booking', code: "CEVWRTIUWVOYT8E7Y", id: 2},
+
+  {couponsimageheader:'./mac.svg', discount: 20, name: "Macdonald", img2: 'https://tmpfiles.nohat.cc/full-m2i8K9G6N4m2H7Z5.png', text1: ' Exclusive Booking.com deal - Up to 20% off for Genius Members now!', people: 6, text2: " Can be combined with other promotions.", link: 'https://sample.net/?connection=shop&stew=passenger', name: 'Booking', code: "CEVWRTIUWVOYT8E7Y", id: 3},
+
+  {couponsimageheader:'./google.svg', discount: 40, name: "Google", img2: 'https://tmpfiles.nohat.cc/full-m2i8K9G6N4m2H7Z5.png', text1: ' Exclusive Booking.com deal - Up to 20% off for Genius Members now!', people: 6, text2: " Can be combined with other promotions.", link: 'https://sample.net/?connection=shop&stew=passenger', name: 'Booking', code: "CEVWRTIUWVOYT8E7Y", id: 4},
+
+  {couponsimageheader:'./nike.svg', discount: 40, name: "Nike", img2: 'https://tmpfiles.nohat.cc/full-m2i8K9G6N4m2H7Z5.png', text1: ' Exclusive Booking.com deal - Up to 20% off for Genius Members now!', people: 6, text2: " Can be combined with other promotions.", link: 'https://sample.net/?connection=shop&stew=passenger', name: 'Booking', code: "CEVWRTIUWVOYT8E7Y", id: 5},
+
+  {couponsimageheader:'./mac.svg', discount: 40, name: "Macdonald", img2: 'https://tmpfiles.nohat.cc/full-m2i8K9G6N4m2H7Z5.png', text1: ' Exclusive Booking.com deal - Up to 20% off for Genius Members now!', people: 6, text2: " Can be combined with other promotions.", link: 'https://sample.net/?connection=shop&stew=passenger', name: 'Booking', code: "CEVWRTIUWVOYT8E7Y", id: 6},
+
+  {couponsimageheader:'./google.svg', discount: 40, name: "Google", img2: 'https://tmpfiles.nohat.cc/full-m2i8K9G6N4m2H7Z5.png', text1: ' Exclusive Booking.com deal - Up to 20% off for Genius Members now!', people: 6, text2: " Can be combined with other promotions.", link: 'https://sample.net/?connection=shop&stew=passenger', name: 'Booking', code: "CEVWRTIUWVOYT8E7Y", id: 1},
+]
 
 function Coupons() {
 
@@ -226,7 +89,7 @@ function Coupons() {
     </div>
                 </div>
                 <div className='coupons-cards'>
-                  <Couponpagecardslide cardsObject={cardsObject}/>
+                  <Couponpagecardslide cardsObject={Couponscards}/>
                 </div>
             </div>
             </div>

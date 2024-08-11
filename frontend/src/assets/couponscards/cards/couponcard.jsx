@@ -8,18 +8,61 @@ import { IoMdCheckmarkCircle } from "react-icons/io";
 
 function Couponcards({
     couponsimageheader = './offericon.svg',
-    code='CEVWRTIUWVOYT8E7Y',
+    code = 'CEVWRTIUWVOYT8E7Y',
     discount = 50,
-    text=' Exclusive Booking.com deal - Up to 20% off for Genius Members now!',
-    people=6,
-    img2='https://tmpfiles.nohat.cc/full-m2i8K9G6N4m2H7Z5.png',
-    link='https://sample.net/?connection=shop&stew=passenger',
-    name='Booking'
+    text1 = 'Exclusive Booking.com deal - Up to 20% off for Genius Members now!',
+    text2 = "Can be combined with other promotions.",
+    people = 6,
+    img2 = 'https://tmpfiles.nohat.cc/full-m2i8K9G6N4m2H7Z5.png',
+    link = 'https://sample.net/?connection=shop&stew=passenger',
+    name = 'Booking',
+    couponId,
+    onAddCoupon,
+    onRemoveCoupon,
+    isCouponAdded = false
 }) {
     const [isPopupVisible, setIsPopupVisible] = useState(false);
+    const [isAdded, setIsAdded] = useState(isCouponAdded);
 
     const togglePopup = () => {
         setIsPopupVisible(!isPopupVisible);
+    };
+
+    const handleToggleCouponClick = async () => {
+        if (isAdded) {
+            if (!couponId) {
+                console.error('No couponId provided');
+                return;
+            }
+            try {
+                console.log('Removing coupon with ID:', couponId);
+                await onRemoveCoupon(couponId);
+                setIsAdded(false);
+                console.log('Coupon removed:', couponId);
+            } catch (error) {
+                console.error('Error removing coupon:', error.response ? error.response.data : error.message);
+            }
+        } else {
+            try {
+                const coupon = {
+                    couponsimageheader,
+                    discount,
+                    name,
+                    people,
+                    text1,
+                    text2,
+                    img2,
+                    link,
+                    code,
+                    couponId  // Include the couponId for identification
+                };
+                await onAddCoupon(coupon);
+                setIsAdded(true);
+                console.log('Coupon added:', couponId);
+            } catch (error) {
+                console.error('Error adding coupon:', error.response ? error.response.data : error.message);
+            }
+        }
     };
 
     return (
@@ -32,11 +75,13 @@ function Couponcards({
                     </div>
                     <div className='couponscardspage-header-right'>
                         <LuShare2 className='couponscardspage-share'/>
-                        <Heart heartColor='#FA6619' />
+                        <button onClick={handleToggleCouponClick}>
+                            <Heart heartColor='#FA6619' isClicked={isAdded} />
+                        </button>
                     </div>
                 </div>
                 <div className='couponscardspage-content'>
-                    <p className='couponscardspage-text'> {text} </p>
+                    <p className='couponscardspage-text'> {text1} </p>
                     <div className='couponscardspage-content-right'>
                         <div className='couponscardspage-button'>
                             <button className='couponscardspage-button-real' onClick={togglePopup}>

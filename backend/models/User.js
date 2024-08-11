@@ -29,6 +29,7 @@ const couponSchema = new mongoose.Schema({
   img2: { type: String, required: true },
   link: { type: String, required: true },
   code: { type: String, required: true },
+  id: { type: String, required: false },
 });
 
 // Main user schema
@@ -84,6 +85,7 @@ const validate = (data) => {
         img2: Joi.string().required().label("Image 2"),
         link: Joi.string().required().label("Link"),
         code: Joi.string().required().label("Code"),
+        id: Joi.string().label("id"),
       })
     ).label("Coupons"),
   });
@@ -118,6 +120,7 @@ const validateCoupon = (coupon) => {
     img2: Joi.string().required().label("Image 2"),
     link: Joi.string().required().label("Link"),
     code: Joi.string().required().label("Code"),
+    id: Joi.string().label("id"),
   });
   return schema.validate(coupon);
 };

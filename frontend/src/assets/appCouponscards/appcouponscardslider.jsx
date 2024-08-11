@@ -24,7 +24,7 @@ function AppcouponsCardslide({ cardsObject }) {
       const data = await response.json();
       if (response.ok) {
         console.log("Coupon removed successfully", data);
-        setCoupons(coupons.filter((coupon) => coupon._id !== couponId)); // Update state after deletion
+        setCoupons(coupons.filter((coupon) => coupon._id !== couponId));
       } else {
         console.error("Error removing coupon:", data.message);
       }
@@ -46,7 +46,7 @@ function AppcouponsCardslide({ cardsObject }) {
       const data = await response.json();
       if (response.ok) {
         console.log("Coupon added successfully", data);
-        setCoupons([...coupons, data]); // Update state after addition
+        setCoupons([...coupons, data]);
       } else {
         console.error("Error adding coupon:", data.message);
       }
@@ -85,7 +85,7 @@ function AppcouponsCardslide({ cardsObject }) {
             <div className="couponsslider-content" key={cardData._id}>
               <AppCouponscards
                 {...cardData}
-                couponId={cardData._id}  // Pass couponId here
+                couponId={cardData._id}
                 isProfilePage={location.pathname === '/profile'}
                 onRemoveCoupon={handleRemoveCoupon}
                 onAddCoupon={handleAddCoupon}

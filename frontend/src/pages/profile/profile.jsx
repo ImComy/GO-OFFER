@@ -88,7 +88,7 @@ function Profile() {
   const handleClick = (index, discountCriteria) => {
     setActiveIndex(index);
     filterOffers(discountCriteria);
-    filterCoupons(discountCriteria); // Add this line to filter coupons as well
+    filterCoupons(discountCriteria);
   };
 
   const filterOffers = (discountCriteria) => {

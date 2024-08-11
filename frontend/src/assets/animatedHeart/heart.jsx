@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import './heart.css';
 
-function Heart({ heartColor }) {
-  const [liked, setLiked] = useState(false);
+function Heart({ heartColor, isClicked = false }) {
+  const [liked, setLiked] = useState(isClicked);
   const [animateHeart, setAnimateHeart] = useState(false);
 
   const handleLike = (event) => {
